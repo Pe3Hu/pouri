@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://dyf62qjl7jx0v"]
+
+[ext_resource type="Script" path="res://scene/2/parameter.gd" id="1_h5p8v"]
+[ext_resource type="PackedScene" uid="uid://ciw38iqel0v5a" path="res://scene/0/icon.tscn" id="2_up8hf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7paps"]
+
+[node name="Parameter" type="MarginContainer"]
+custom_minimum_size = Vector2(5, 5)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_h5p8v")
+
+[node name="BG" type="Panel" parent="."]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7paps")
+
+[node name="Type" parent="." instance=ExtResource("2_up8hf")]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Subtype" parent="." instance=ExtResource("2_up8hf")]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="Value" parent="." instance=ExtResource("2_up8hf")]
+layout_mode = 2
+size_flags_horizontal = 8

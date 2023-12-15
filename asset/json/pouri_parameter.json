@@ -1,0 +1,170 @@
+[
+ {
+  "index": 0,
+  "row": 0,
+  "col": 0,
+  "type": "health",
+  "subtype": "limit"
+ },
+ {
+  "index": 1,
+  "row": 0,
+  "col": 1,
+  "type": "health",
+  "subtype": "regeneration"
+ },
+ {
+  "index": 2,
+  "row": 0,
+  "col": 2,
+  "type": "energy",
+  "subtype": "limit"
+ },
+ {
+  "index": 3,
+  "row": 0,
+  "col": 3,
+  "type": "energy",
+  "subtype": "regeneration"
+ },
+ {
+  "index": 4,
+  "row": 1,
+  "col": 0,
+  "type": "resistance",
+  "subtype": "physical"
+ },
+ {
+  "index": 5,
+  "row": 1,
+  "col": 1,
+  "type": "resistance",
+  "subtype": "elemental"
+ },
+ {
+  "index": 6,
+  "row": 1,
+  "col": 2,
+  "type": "penetration",
+  "subtype": "physical"
+ },
+ {
+  "index": 7,
+  "row": 1,
+  "col": 3,
+  "type": "penetration",
+  "subtype": "elemental"
+ },
+ {
+  "index": 8,
+  "row": 2,
+  "col": 0,
+  "type": "power",
+  "subtype": "physical"
+ },
+ {
+  "index": 9,
+  "row": 2,
+  "col": 1,
+  "type": "power",
+  "subtype": "elemental"
+ },
+ {
+  "index": 10,
+  "row": 2,
+  "col": 2,
+  "type": "duration",
+  "subtype": "ordinary"
+ },
+ {
+  "index": 11,
+  "row": 2,
+  "col": 3,
+  "type": "duration",
+  "subtype": "advanced"
+ },
+ {
+  "index": 12,
+  "row": 4,
+  "col": 0,
+  "type": "power",
+  "subtype": "buff"
+ },
+ {
+  "index": 13,
+  "row": 4,
+  "col": 1,
+  "type": "duration",
+  "subtype": "buff"
+ },
+ {
+  "index": 14,
+  "row": 4,
+  "col": 2,
+  "type": "power",
+  "subtype": "debuff"
+ },
+ {
+  "index": 15,
+  "row": 4,
+  "col": 3,
+  "type": "duration",
+  "subtype": "debuff"
+ },
+ {
+  "index": 16,
+  "row": 5,
+  "col": 0,
+  "type": "chance",
+  "subtype": "critcal"
+ },
+ {
+  "index": 17,
+  "row": 5,
+  "col": 1,
+  "type": "power",
+  "subtype": "critcal"
+ },
+ {
+  "index": 18,
+  "row": 5,
+  "col": 2,
+  "type": "chance",
+  "subtype": "overload"
+ },
+ {
+  "index": 19,
+  "row": 5,
+  "col": 3,
+  "type": "power",
+  "subtype": "overload"
+ },
+ {
+  "index": 20,
+  "row": 6,
+  "col": 0,
+  "type": "lifesteal",
+  "subtype": "physical"
+ },
+ {
+  "index": 21,
+  "row": 6,
+  "col": 1,
+  "type": "lifesteal",
+  "subtype": "elemental"
+ },
+ {
+  "index": 22,
+  "row": 6,
+  "col": 2,
+  "type": "lifesteal",
+  "subtype": "all"
+ },
+ {
+  "index": 23,
+  "row": 6,
+  "col": 3,
+  "type": "resistance",
+  "subtype": "debuff"
+ }
+]
