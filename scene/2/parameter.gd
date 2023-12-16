@@ -20,7 +20,7 @@ func update_icons(input_: Dictionary) -> void:
 	for key in Global.arr.parameter:
 		var input = {}
 		input.type = "number"
-		input.subtype = 0
+		input.subtype = input_.value
 		
 		if types.has(key):
 			input.type = "parameter"
@@ -29,4 +29,5 @@ func update_icons(input_: Dictionary) -> void:
 		var icon = get(key)
 		icon.set_attributes(input)
 		icon.custom_minimum_size = Vector2(Global.vec.size.sixteen*2)
+	
 	custom_minimum_size = Vector2(Global.vec.size.parameter)

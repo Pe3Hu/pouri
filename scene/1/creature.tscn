@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://coh4pridox665"]
+[gd_scene load_steps=7 format=3 uid="uid://coh4pridox665"]
 
 [ext_resource type="Script" path="res://scene/1/creature.gd" id="1_qlkr1"]
 [ext_resource type="PackedScene" uid="uid://dqcwgpd1e8ec1" path="res://scene/2/core.tscn" id="2_ur64t"]
+[ext_resource type="PackedScene" uid="uid://cj31171eyrvxu" path="res://scene/2/indicators.tscn" id="3_mdhu0"]
 [ext_resource type="PackedScene" uid="uid://dlevdyapy7lcy" path="res://scene/2/tally.tscn" id="3_uaahl"]
+[ext_resource type="PackedScene" uid="uid://8jv7fpj556n6" path="res://scene/3/abilities.tscn" id="5_e4d7p"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7paps"]
 
@@ -28,12 +30,27 @@ visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_7paps")
 
-[node name="VBox" type="VBoxContainer" parent="."]
+[node name="HBox" type="HBoxContainer" parent="."]
 layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="HBox"]
+layout_mode = 2
+theme_override_constants/separation = 0
 alignment = 1
 
-[node name="Core" parent="VBox" instance=ExtResource("2_ur64t")]
+[node name="HBox" type="HBoxContainer" parent="HBox/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Core" parent="HBox/VBox/HBox" instance=ExtResource("2_ur64t")]
 layout_mode = 2
 
-[node name="Tally" parent="VBox" instance=ExtResource("3_uaahl")]
+[node name="Indicators" parent="HBox/VBox/HBox" instance=ExtResource("3_mdhu0")]
+layout_mode = 2
+
+[node name="Tally" parent="HBox/VBox" instance=ExtResource("3_uaahl")]
+layout_mode = 2
+
+[node name="Abilities" parent="HBox" instance=ExtResource("5_e4d7p")]
 layout_mode = 2

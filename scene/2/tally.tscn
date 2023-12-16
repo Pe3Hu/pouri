@@ -28,4 +28,4 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_7paps")
 
 [node name="Parameters" type="GridContainer" parent="."]
 layout_mode = 2
-columns = 4
+columns = 6

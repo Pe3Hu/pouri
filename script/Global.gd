@@ -26,15 +26,35 @@ func init_arr() -> void:
 	arr.edge = [1, 2, 3, 4, 5, 6]
 	arr.particle = ["strength", "dexterity", "intellect", "will"]
 	arr.parameter = ["type", "subtype", "value"]
+	arr.indicator = ["health", "barrier", "energy"]
+	arr.kind = ["ordinary", "advanced", "ultimate"]
+	arr.advanced = [25, 50, 100]
+	arr.source = ["elemental", "physical"]
+	
 
 
 func init_num() -> void:
 	num.index = {}
+	
+	num.core = {}
+	num.core.base = 100
+	
+	num.particle = {}
+	num.particle.min = 10
+	num.particle.max = 39
+	
+	num.weight = {}
+	num.weight.energy = 7.2
+	num.weight.ordinary = 60
+	num.weight.ultimate = 1000
 
 
 func init_dict() -> void:
 	init_neighbor()
 	init_parameter()
+	init_keyword()
+	init_priority()
+	init_cast()
 
 
 func init_neighbor() -> void:
@@ -83,6 +103,40 @@ func init_neighbor() -> void:
 	]
 
 
+func init_cast() -> void:
+	dict.energy = {}
+	dict.energy.type = {}
+	dict.energy.type["strength"] = "fury"
+	dict.energy.type["dexterity"] = "mana"
+	dict.energy.type["intellect"] = "mana"
+	dict.energy.type["will"] = "fury"
+	
+	dict.cast = {}
+	dict.cast.duration = {}
+	dict.cast.duration["fast"] = {}
+	dict.cast.duration["fast"]["fairly"] = 1
+	dict.cast.duration["fast"]["slightly"] = 1.2
+	dict.cast.duration["slow"] = {}
+	dict.cast.duration["slow"]["slightly"] = 1.5
+	dict.cast.duration["slow"]["fairly"] = 2
+	
+	dict.cast.energy = {}
+	dict.cast.energy["fast"] = {}
+	dict.cast.energy["slow"] = {}
+	dict.cast.energy["fast"]["fairly"] = {}
+	dict.cast.energy["fast"]["slightly"] = {}
+	dict.cast.energy["slow"]["slightly"] = {}
+	dict.cast.energy["slow"]["fairly"] = {}
+	dict.cast.energy["fast"]["fairly"]["physical"] = 6
+	dict.cast.energy["fast"]["slightly"]["physical"] = 7
+	dict.cast.energy["slow"]["slightly"]["physical"] = 9
+	dict.cast.energy["slow"]["fairly"]["physical"] = 12
+	dict.cast.energy["fast"]["fairly"]["elemental"] = 4
+	dict.cast.energy["fast"]["slightly"]["elemental"] = 5
+	dict.cast.energy["slow"]["slightly"]["elemental"] = 6
+	dict.cast.energy["slow"]["fairly"]["elemental"] = 8
+
+
 func init_parameter() -> void:
 	dict.parameter = {}
 	dict.parameter.index = {}
@@ -98,6 +152,51 @@ func init_parameter() -> void:
 				data[key] = parameter[key]
 		
 		dict.parameter.index[parameter.index] = data
+
+
+func init_keyword() -> void:
+	dict.keyword = {}
+	dict.keyword.title = {}
+	dict.keyword.type = {}
+	dict.keyword.subtype = {}
+	
+	var path = "res://asset/json/pouri_keyword.json"
+	var array = load_data(path)
+	
+	for keyword in array:
+		var data = {}
+		
+		for key in keyword:
+			if key != "title":
+				data[key] = keyword[key]
+		
+		dict.keyword.title[keyword.title] = data
+		
+		if !dict.keyword.type.has(keyword.type):
+			dict.keyword.type[keyword.type] = []
+		
+		if !dict.keyword.subtype.has(keyword.subtype):
+			dict.keyword.subtype[keyword.subtype] = []
+		
+		dict.keyword.type[keyword.type].append(keyword.title)
+		dict.keyword.subtype[keyword.subtype].append(keyword.title)
+
+
+func init_priority() -> void:
+	dict.priority = {}
+	dict.priority.index = {}
+	
+	var path = "res://asset/json/pouri_priority.json"
+	var array = load_data(path)
+	
+	for priority in array:
+		var data = {}
+		
+		for key in priority:
+			if key != "index":
+				data[key] = priority[key]
+		
+		dict.priority.index[priority.index] = data
 
 
 func init_node() -> void:
@@ -121,10 +220,12 @@ func init_vec():
 	
 	vec.size.aspect = Vector2(32, 32)
 	vec.size.box = Vector2(100, 100)
-	vec.size.bar = Vector2(120, 12)
+	vec.size.bar = Vector2(164, 16)
 	
 	vec.size.particle = Vector2(32, 32)
 	vec.size.parameter = Vector2(64, 64)
+	vec.size.couple = Vector2(48, 48)
+	
 	
 	init_window_size()
 
@@ -144,6 +245,20 @@ func init_color():
 	color.particle.dexterity = Color.from_hsv(120 / h, 0.9, 0.7)
 	color.particle.intellect = Color.from_hsv(210 / h, 0.9, 0.7)
 	color.particle.will = Color.from_hsv(60 / h, 0.9, 0.7)
+	
+	color.indicator = {}
+	color.indicator.health = {}
+	color.indicator.health.fill = Color.from_hsv(0, 0.9, 0.7)
+	color.indicator.health.background = Color.from_hsv(0, 0.5, 0.9)
+	color.indicator.barrier = {}
+	color.indicator.barrier.fill = Color.from_hsv(190 / h, 0.9, 0.7)
+	color.indicator.barrier.background = Color.from_hsv(190 / h, 0.5, 0.9)
+	color.indicator.mana = {}
+	color.indicator.mana.fill = Color.from_hsv(150 / h, 0.9, 0.7)
+	color.indicator.mana.background = Color.from_hsv(150 / h, 0.5, 0.9)
+	color.indicator.fury = {}
+	color.indicator.fury.fill = Color.from_hsv(270 / h, 0.9, 0.7)
+	color.indicator.fury.background = Color.from_hsv(270 / h, 0.5, 0.9)
 
 
 func save(path_: String, data_: String):

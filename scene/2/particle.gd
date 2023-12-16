@@ -18,10 +18,7 @@ func set_attributes(input_: Dictionary) -> void:
 	
 	var input = {}
 	input.type = "number"
-	input.subtype = 0
-	#input.type = "particle"
-	#input.subtype = type
-	#input.value = 0
+	input.subtype = input_.value
 	value.set_attributes(input)
 	value.custom_minimum_size = Vector2(Global.vec.size.particle)
-	
+

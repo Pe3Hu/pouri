@@ -1,0 +1,20 @@
+[
+ {
+  "index": 0,
+  "extreme": "min",
+  "type": "health",
+  "subtype": "current"
+ },
+ {
+  "index": 1,
+  "extreme": "max",
+  "type": "health",
+  "subtype": "current"
+ },
+ {
+  "index": 2,
+  "extreme": "max",
+  "type": "damage",
+  "subtype": "done"
+ }
+]

@@ -4,167 +4,223 @@
   "row": 0,
   "col": 0,
   "type": "health",
-  "subtype": "limit"
+  "subtype": "limit",
+  "value": 1000
  },
  {
   "index": 1,
   "row": 0,
   "col": 1,
   "type": "health",
-  "subtype": "regeneration"
+  "subtype": "regeneration",
+  "value": 1
  },
  {
   "index": 2,
   "row": 0,
   "col": 2,
-  "type": "energy",
-  "subtype": "limit"
+  "type": "barrier",
+  "subtype": "limit",
+  "value": 200
  },
  {
   "index": 3,
   "row": 0,
   "col": 3,
-  "type": "energy",
-  "subtype": "regeneration"
+  "type": "barrier",
+  "subtype": "regeneration",
+  "value": 5
  },
  {
   "index": 4,
-  "row": 1,
-  "col": 0,
-  "type": "resistance",
-  "subtype": "physical"
+  "row": 0,
+  "col": 4,
+  "type": "energy",
+  "subtype": "limit",
+  "value": 100
  },
  {
   "index": 5,
-  "row": 1,
-  "col": 1,
-  "type": "resistance",
-  "subtype": "elemental"
+  "row": 0,
+  "col": 5,
+  "type": "energy",
+  "subtype": "regeneration",
+  "value": 2
  },
  {
   "index": 6,
   "row": 1,
-  "col": 2,
-  "type": "penetration",
-  "subtype": "physical"
+  "col": 0,
+  "type": "resistance",
+  "subtype": "physical",
+  "value": 20
  },
  {
   "index": 7,
   "row": 1,
-  "col": 3,
-  "type": "penetration",
-  "subtype": "elemental"
+  "col": 1,
+  "type": "resistance",
+  "subtype": "elemental",
+  "value": 20
  },
  {
   "index": 8,
-  "row": 2,
-  "col": 0,
-  "type": "power",
-  "subtype": "physical"
+  "row": 1,
+  "col": 2,
+  "type": "resistance",
+  "subtype": "limit",
+  "value": 50
  },
  {
   "index": 9,
-  "row": 2,
-  "col": 1,
-  "type": "power",
-  "subtype": "elemental"
+  "row": 1,
+  "col": 3,
+  "type": "chance",
+  "subtype": "limit",
+  "value": 5
  },
  {
   "index": 10,
-  "row": 2,
-  "col": 2,
-  "type": "duration",
-  "subtype": "ordinary"
+  "row": 1,
+  "col": 4,
+  "type": "penetration",
+  "subtype": "physical",
+  "value": 0
  },
  {
   "index": 11,
-  "row": 2,
-  "col": 3,
-  "type": "duration",
-  "subtype": "advanced"
+  "row": 1,
+  "col": 5,
+  "type": "penetration",
+  "subtype": "elemental",
+  "value": 0
  },
  {
   "index": 12,
-  "row": 4,
+  "row": 2,
   "col": 0,
   "type": "power",
-  "subtype": "buff"
+  "subtype": "physical",
+  "value": 0
  },
  {
   "index": 13,
-  "row": 4,
+  "row": 2,
   "col": 1,
-  "type": "duration",
-  "subtype": "buff"
+  "type": "power",
+  "subtype": "elemental",
+  "value": 0
  },
  {
   "index": 14,
-  "row": 4,
+  "row": 2,
   "col": 2,
   "type": "power",
-  "subtype": "debuff"
+  "subtype": "buff",
+  "value": 0
  },
  {
   "index": 15,
-  "row": 4,
+  "row": 2,
   "col": 3,
   "type": "duration",
-  "subtype": "debuff"
+  "subtype": "buff",
+  "value": 0
  },
  {
   "index": 16,
-  "row": 5,
-  "col": 0,
-  "type": "chance",
-  "subtype": "critcal"
+  "row": 2,
+  "col": 4,
+  "type": "power",
+  "subtype": "debuff",
+  "value": 0
  },
  {
   "index": 17,
-  "row": 5,
-  "col": 1,
-  "type": "power",
-  "subtype": "critcal"
+  "row": 2,
+  "col": 5,
+  "type": "duration",
+  "subtype": "debuff",
+  "value": 0
  },
  {
   "index": 18,
-  "row": 5,
-  "col": 2,
-  "type": "chance",
-  "subtype": "overload"
+  "row": 3,
+  "col": 0,
+  "type": "duration",
+  "subtype": "ordinary",
+  "value": 0
  },
  {
   "index": 19,
-  "row": 5,
-  "col": 3,
-  "type": "power",
-  "subtype": "overload"
+  "row": 3,
+  "col": 1,
+  "type": "duration",
+  "subtype": "advanced",
+  "value": 0
  },
  {
   "index": 20,
-  "row": 6,
-  "col": 0,
-  "type": "lifesteal",
-  "subtype": "physical"
+  "row": 3,
+  "col": 2,
+  "type": "chance",
+  "subtype": "critcal",
+  "value": 5
  },
  {
   "index": 21,
-  "row": 6,
-  "col": 1,
-  "type": "lifesteal",
-  "subtype": "elemental"
+  "row": 3,
+  "col": 3,
+  "type": "power",
+  "subtype": "critcal",
+  "value": 150
  },
  {
   "index": 22,
-  "row": 6,
-  "col": 2,
-  "type": "lifesteal",
-  "subtype": "all"
+  "row": 3,
+  "col": 4,
+  "type": "chance",
+  "subtype": "overload",
+  "value": 15
  },
  {
   "index": 23,
-  "row": 6,
+  "row": 3,
+  "col": 5,
+  "type": "power",
+  "subtype": "overload",
+  "value": 100
+ },
+ {
+  "index": 24,
+  "row": 4,
+  "col": 0,
+  "type": "lifesteal",
+  "subtype": "physical",
+  "value": 0
+ },
+ {
+  "index": 25,
+  "row": 4,
+  "col": 1,
+  "type": "lifesteal",
+  "subtype": "elemental",
+  "value": 0
+ },
+ {
+  "index": 26,
+  "row": 4,
+  "col": 2,
+  "type": "lifesteal",
+  "subtype": "all",
+  "value": 0
+ },
+ {
+  "index": 27,
+  "row": 4,
   "col": 3,
   "type": "resistance",
-  "subtype": "debuff"
+  "subtype": "debuff",
+  "value": 0
  }
 ]

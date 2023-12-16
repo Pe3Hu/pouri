@@ -1,0 +1,44 @@
+[
+ {
+  "title": "aqua",
+  "scatter": 30,
+  "type": "elemental",
+  "subtype": "damage"
+ },
+ {
+  "title": "wind",
+  "scatter": 60,
+  "type": "elemental",
+  "subtype": "damage"
+ },
+ {
+  "title": "fire",
+  "scatter": 45,
+  "type": "elemental",
+  "subtype": "damage"
+ },
+ {
+  "title": "earth",
+  "scatter": 15,
+  "type": "elemental",
+  "subtype": "damage"
+ },
+ {
+  "title": "stabbing",
+  "scatter": 20,
+  "type": "physical",
+  "subtype": "damage"
+ },
+ {
+  "title": "chopping",
+  "scatter": 50,
+  "type": "physical",
+  "subtype": "damage"
+ },
+ {
+  "title": "crushing",
+  "scatter": 80,
+  "type": "physical",
+  "subtype": "damage"
+ }
+]
