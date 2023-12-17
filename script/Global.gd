@@ -27,7 +27,7 @@ func init_arr() -> void:
 	arr.particle = ["strength", "dexterity", "intellect", "will"]
 	arr.parameter = ["type", "subtype", "value"]
 	arr.indicator = ["health", "barrier", "energy"]
-	arr.kind = ["ordinary", "advanced", "ultimate"]
+	arr.ability = ["ordinary", "advanced", "ultimate"]
 	arr.advanced = [25, 50, 100]
 	arr.source = ["elemental", "physical"]
 	
@@ -206,9 +206,13 @@ func init_node() -> void:
 func init_scene() -> void:
 	scene.tribe = load("res://scene/1/tribe.tscn")
 	scene.creature = load("res://scene/1/creature.tscn")
+	scene.troop = load("res://scene/1/troop.tscn")
 	
 	scene.particle = load("res://scene/2/particle.tscn")
 	scene.parameter = load("res://scene/2/parameter.tscn")
+	
+	scene.land = load("res://scene/4/land.tscn")
+	scene.battleground = load("res://scene/4/battleground.tscn")
 
 
 func init_vec():
@@ -225,6 +229,7 @@ func init_vec():
 	vec.size.particle = Vector2(32, 32)
 	vec.size.parameter = Vector2(64, 64)
 	vec.size.couple = Vector2(48, 48)
+	vec.size.land = Vector2(32, 32)
 	
 	
 	init_window_size()

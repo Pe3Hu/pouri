@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://ck6c0qwf3p5sx"]
+[gd_scene load_steps=6 format=3 uid="uid://ck6c0qwf3p5sx"]
 
 [ext_resource type="Script" path="res://scene/3/ability.gd" id="1_oh1t6"]
 [ext_resource type="PackedScene" uid="uid://c8urkemoadqiu" path="res://scene/0/couple.tscn" id="2_4am7g"]
 [ext_resource type="PackedScene" uid="uid://ciw38iqel0v5a" path="res://scene/0/icon.tscn" id="2_8us5a"]
+[ext_resource type="PackedScene" uid="uid://td6yem0llqx" path="res://scene/3/cooldown.tscn" id="4_s8tin"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7paps"]
 
@@ -67,4 +68,7 @@ layout_mode = 2
 alignment = 1
 
 [node name="Change" parent="HBox/Energy" instance=ExtResource("2_4am7g")]
+layout_mode = 2
+
+[node name="Cooldown" parent="HBox/Energy" instance=ExtResource("4_s8tin")]
 layout_mode = 2

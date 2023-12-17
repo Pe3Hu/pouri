@@ -17,7 +17,8 @@ func _input(event) -> void:
 		match event.keycode:
 			KEY_SPACE:
 				if event.is_pressed() && !event.is_echo():
-					pass
+					var creature = sketch.cradle.tribes.get_child(0).creatures.get_child(0)
+					creature.select_ability()
 
 
 func _process(delta_) -> void:

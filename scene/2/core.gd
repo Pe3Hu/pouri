@@ -26,9 +26,9 @@ func init_particles() -> void:
 	
 	for type in Global.arr.particle:
 		input.type = type
-		var particle = get(type)
+		var _particle = get(type)
 		input.value = Global.num.particle.min
-		particle.set_attributes(input)
+		_particle.set_attributes(input)
 		retained -= input.value
 		options[type] = Global.num.particle.max - Global.num.particle.min
 	
@@ -39,8 +39,8 @@ func init_particles() -> void:
 		value = min(value, retained)
 		options[type] -= value
 		retained -= value
-		var particle = get(type)
-		particle.value.change_number(value)
+		var _particle = get(type)
+		_particle.value.change_number(value)
 		
 		if options[type] == 0:
 			options.erase(type)
@@ -79,6 +79,3 @@ func init_particles() -> void:
 	
 	primary = datas[0].particle.type
 	secondary = datas[1].particle.type
-
-
-

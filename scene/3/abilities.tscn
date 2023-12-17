@@ -38,4 +38,5 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Ultimate" parent="VBox" instance=ExtResource("2_aoipt")]
+visible = false
 layout_mode = 2

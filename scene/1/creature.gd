@@ -2,11 +2,15 @@ extends MarginContainer
 
 
 @onready var core = $HBox/VBox/HBox/Core
-@onready var tally = $HBox/VBox/Tally
+@onready var tally = $HBox/Tally
 @onready var indicators = $HBox/VBox/HBox/Indicators
-@onready var abilities = $HBox/Abilities
+@onready var abilities = $HBox/VBox/Abilities
 
 var tribe = null
+var troop = null
+var target = null
+var knockout = false
+var rating = {}
 
 
 func set_attributes(input_: Dictionary) -> void:
@@ -20,5 +24,91 @@ func set_attributes(input_: Dictionary) -> void:
 	abilities.set_attributes(input)
 
 
-func knockout() -> void:
-	pass
+func use_ability(kind_: String) -> void:
+	var ability = abilities.get(kind_)
+	var energy = ability.energyChange.stack.get_number()
+	
+	if kind_ == "advanced":
+		change_energy(energy)
+	
+	ability.energyCooldown.start()
+
+
+func get_damage_from_ability(ability_: MarginContainer) -> void:
+	var indicator = indicators.get("barrier")
+	var multiplier = tally.resistance[ability_.source]
+	var damage = -round(multiplier * ability_.damage.roll)
+	indicator.change_value("current", damage)
+	rating.health.current = indicators.get_indicator("health").get_value("current")
+	
+	if knockout:
+		ability_.abilities.creature.target = null
+
+
+func change_energy(energy_: int) -> void:
+	var indicator = indicators.get("energy")
+	indicator.change_value("current", energy_)
+
+
+func select_ability() -> void:
+	var kind = null
+	
+	for _i in range(Global.arr.ability.size()-1, -1, -1):
+		kind = Global.arr.ability[_i]
+		var ability = abilities.get(kind)
+		
+		match kind:
+			"advanced":
+				if ability.energy_check():
+					break
+			"ultimate":
+				if ability.trigger_check():
+					break
+	
+	use_ability(kind)
+
+
+func set_as_knockouted() -> void:
+	if troop != null:
+		knockout = true
+		
+		troop.creatures.remove_child(self)
+		troop.infirmary.add_child(self)
+		
+		if troop.creatures.get_child_count() == 0:
+			troop.winner = false
+			troop.opponent.winner = true
+			troop.battleground.winner = troop.opponent
+			troop.battleground.winner_prize()
+
+
+func active_passive_regeneration() -> void:
+	for type in Global.arr.indicator:
+		var indicator = indicators.get_indicator(type)
+		var parameter = tally.get_parameter(type, "regeneration")
+		var value = parameter.value.get_number()
+		indicator.change_value("current", value)
+
+
+func reset_rating() -> void:
+	rating.damage = {}
+	rating.damage.current = 0
+	#rating.damage.outcome = 0
+	#rating.damage.income = 0
+	rating.health = {}
+	rating.health.current = indicators.get_indicator("health").get_value("current")
+
+
+func update_target(ability_: MarginContainer) -> void:
+	target = null
+	var extreme = ability_.priorityExtreme.subtype
+	var type = ability_.priorityType.subtype
+	var subtype = "current"
+	var ranking = troop.opponent.get_ranking(type, subtype)
+	
+	if !ranking.is_empty():
+		match extreme:
+			"min":
+				target = ranking.front()
+			"max":
+				target = ranking.back()

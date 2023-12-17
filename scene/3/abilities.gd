@@ -17,7 +17,7 @@ func roll_abilities() -> void:
 	var input = {}
 	input.abilities = self
 	
-	for kind in Global.arr.kind:
+	for kind in Global.arr.ability:
 		var ability = get(kind)
 		input.kind = kind
 		input.cast = {}

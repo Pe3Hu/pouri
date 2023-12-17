@@ -4,12 +4,16 @@ extends MarginContainer
 @onready var parameters = $Parameters
 
 var creature = null
+var resistance = {}
 
 
 func set_attributes(input_: Dictionary) -> void:
 	creature = input_.creature
 	
 	init_parameters()
+	
+	for source in Global.arr.source:
+		update_resistance(source)
 
 
 func init_parameters() -> void:
@@ -33,3 +37,13 @@ func get_parameter(type_: String, subtype_: String) -> Variant:
 			return parameter
 	
 	return null
+
+
+func update_resistance(source_: String) -> void:
+	var parameter = get_parameter("resistance", source_)
+	var value = parameter.value.get_number()
+	
+	if value >= 0:
+		resistance[source_] = 100 / (100 + value)
+	else:
+		resistance[source_] = 2 - 100 / (100 - value)

@@ -31,13 +31,9 @@ func init_bars() -> void:
 		indicator.set_attributes(input)
 
 
-func get_indicator_based_on_name(name_: String) -> Variant:
+func get_indicator(type_: String) -> Variant:
 	for indicator in bars.get_children():
-		if indicator.name.to_lower() == name_:
+		if indicator.name.to_lower() == type_:
 			return indicator
 	
 	return null
-
-
-func half_barrier() -> void:
-	barrier.update_value("current", -barrier.bar.value / 2)

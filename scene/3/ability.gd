@@ -8,6 +8,7 @@ extends MarginContainer
 @onready var damageMin = $HBox/Damage/Min
 @onready var damageMax = $HBox/Damage/Max
 @onready var energyChange = $HBox/Energy/Change
+@onready var energyCooldown = $HBox/Energy/Cooldown
 
 var abilities = null
 var priority = null
@@ -17,7 +18,7 @@ var keyword = null
 var cast = {}
 var source = null
 var echo = null
-var damage = null
+var damage = {}
 var energy = null
 
 
@@ -38,7 +39,6 @@ func set_attributes(input_: Dictionary) -> void:
 	
 	if kind != "ultimate":
 		cast.duration = Global.dict.cast.duration[cast.type][cast.subtype]
-	
 	
 	init_icons()
 
@@ -74,24 +74,64 @@ func init_icons() -> void:
 	input.subtype = "energy"
 	input.value = -energy
 	energyChange.set_attributes(input)
+	
+	input.ability = self
+	energyCooldown.set_attributes(input)
 
 
 func update_damage() -> void:
-	damage = weight
+	damage.base = weight
 	
 	if kind != "ultimate":
-		damage = round(weight / (6 / cast.duration))
+		damage.base = round(weight / (6 / cast.duration))
 	
 	var extremes = ["Min", "Max"]
 	var scatter = Global.dict.keyword.title[keyword].scatter
-	scatter = round(damage * scatter / 100.0)
+	scatter = round(damage.base * scatter / 100.0)
 	
 	for extreme in extremes:
 		var couple = get("damage" + extreme)
-		var sign = 1
+		var _sign = 1
 		
 		if extreme == "Min":
-			sign = -1
+			_sign = -1
 		
-		var value = damage + scatter * sign
+		var value = damage.base + scatter * _sign
 		couple.stack.set_number(value)
+
+
+func roll_damage() -> void:
+	var extremes = ["Min", "Max"]
+	var value = {}
+	
+	for extreme in extremes:
+		var couple = get("damage" + extreme)
+		value[extreme] = couple.stack.get_number()
+
+	Global.rng.randomize()
+	damage.roll = Global.rng.randi_range(value["Min"], value["Max"])
+
+
+func energy_check() -> bool:
+	var indicator = abilities.creature.indicators.get("energy")
+	var value = {}
+	value.current = indicator.get_value("current")
+	value.limit = -energyChange.stack.get_number()
+	return value.current >= value.limit
+
+
+func trigger_check() -> bool:
+	return false
+
+
+func apply_effects() -> void:
+	abilities.creature.update_target(self)
+	
+	for _i in echo:
+		if abilities.creature.target != null:
+			roll_damage()
+			abilities.creature.rating.health.current += damage.roll
+			abilities.creature.target.get_damage_from_ability(self)
+			
+			if kind == "ordinary":
+				abilities.creature.change_energy(-energy)

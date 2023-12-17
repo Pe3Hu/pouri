@@ -58,7 +58,7 @@ func change_value(limit_: String, value_: int) -> void:
 					"barrier":
 						indicators.health.change_value("current", arrear)
 					"health":
-						indicators.creature.knockout()
+						indicators.creature.set_as_knockouted()
 			
 			value.text = str(bar.value)#type + ": " + 
 		"maximum":
@@ -70,10 +70,25 @@ func set_value(limit_: String, value_: int) -> void:
 		"current":
 			bar.value = value_
 			value.text = str(bar.value)
+			
+			if type == "health" and value_ == 0:
+				indicators.creature.set_as_knockouted()
 		"maximum":
 			bar.max_value = value_
-			var value = min(bar.value, bar.max_value)
-			set_value("current", value)
+			var _value = min(bar.value, bar.max_value)
+			set_value("current", _value)
+
+
+func get_value(limit_: String) -> int:
+	var _value = null
+	
+	match limit_:
+		"current":
+			_value = bar.value
+		"maximum":
+			_value = bar.max_value
+	
+	return _value
 
 
 func get_percentage() -> int:
