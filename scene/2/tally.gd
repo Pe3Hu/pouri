@@ -67,6 +67,11 @@ func get_block_based_on_type_and_source(type_: String, source_: String) -> int:
 	
 	if trigger_probability_check(type_, source_):
 		block = parameters[type_]["limit"]
+		var conditions = {}
+		conditions.type = "triggered"
+		conditions.subtype = type_
+		conditions.value = block
+		creature.abilities.trigger_ultimate_conditions_check(conditions)
 	
 	return block
 
@@ -77,3 +82,8 @@ func trigger_probability_check(type_: String, source_: String) -> bool:
 	Global.rng.randomize()
 	var random = Global.rng.randf_range(0, 1)
 	return chance >= random
+
+
+func get_offense_multiplier(type_: String) -> float:
+	var value = parameters[type_].limit
+	return 1 + value / 100.0

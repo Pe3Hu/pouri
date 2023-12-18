@@ -29,10 +29,10 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_7paps")
 [node name="HBox" type="HBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="Creatures" type="VBoxContainer" parent="HBox"]
+[node name="Creatures" type="HBoxContainer" parent="HBox"]
 layout_mode = 2
 alignment = 1
 
-[node name="Infirmary" type="VBoxContainer" parent="HBox"]
+[node name="Infirmary" type="HBoxContainer" parent="HBox"]
 layout_mode = 2
 alignment = 1

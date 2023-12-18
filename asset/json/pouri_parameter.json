@@ -6,6 +6,7 @@
   "type": "health",
   "subtype": "limit",
   "value": 1000,
+  "rarity": 10,
   "min": 25,
   "max": 75
  },
@@ -16,6 +17,7 @@
   "type": "health",
   "subtype": "regeneration",
   "value": 1,
+  "rarity": 5,
   "min": 0.02,
   "max": 0.08
  },
@@ -26,6 +28,7 @@
   "type": "barrier",
   "subtype": "limit",
   "value": 200,
+  "rarity": 6,
   "min": 5,
   "max": 15
  },
@@ -36,6 +39,7 @@
   "type": "barrier",
   "subtype": "regeneration",
   "value": 2,
+  "rarity": 3,
   "min": 0.05,
   "max": 0.15
  },
@@ -46,6 +50,7 @@
   "type": "energy",
   "subtype": "limit",
   "value": 100,
+  "rarity": 4,
   "min": 4,
   "max": 6
  },
@@ -56,6 +61,7 @@
   "type": "energy",
   "subtype": "regeneration",
   "value": 2,
+  "rarity": 2,
   "min": 0.05,
   "max": 0.15
  },
@@ -66,6 +72,7 @@
   "type": "resistance",
   "subtype": "physical",
   "value": 0,
+  "rarity": 9,
   "min": 1,
   "max": 3
  },
@@ -76,6 +83,7 @@
   "type": "resistance",
   "subtype": "elemental",
   "value": 0,
+  "rarity": 8,
   "min": 1,
   "max": 3
  },
@@ -86,6 +94,7 @@
   "type": "resistance",
   "subtype": "universal",
   "value": 20,
+  "rarity": 5,
   "min": 1,
   "max": 3
  },
@@ -96,6 +105,7 @@
   "type": "dodge",
   "subtype": "physical",
   "value": 0,
+  "rarity": 5,
   "min": 0.2,
   "max": 0.3
  },
@@ -106,6 +116,7 @@
   "type": "dodge",
   "subtype": "elemental",
   "value": 0,
+  "rarity": 4,
   "min": 0.2,
   "max": 0.3
  },
@@ -116,6 +127,7 @@
   "type": "dodge",
   "subtype": "universal",
   "value": 5,
+  "rarity": 1,
   "min": 0.2,
   "max": 0.3
  },
@@ -126,6 +138,7 @@
   "type": "dodge",
   "subtype": "limit",
   "value": 200,
+  "rarity": 7,
   "min": 6,
   "max": 14
  },
@@ -136,6 +149,7 @@
   "type": "armor",
   "subtype": "physical",
   "value": 0,
+  "rarity": 6,
   "min": 1,
   "max": 4
  },
@@ -146,6 +160,7 @@
   "type": "armor",
   "subtype": "elemental",
   "value": 0,
+  "rarity": 5,
   "min": 1,
   "max": 4
  },
@@ -156,6 +171,7 @@
   "type": "armor",
   "subtype": "universal",
   "value": 50,
+  "rarity": 2,
   "min": 1,
   "max": 4
  },
@@ -166,6 +182,7 @@
   "type": "armor",
   "subtype": "limit",
   "value": 20,
+  "rarity": 4,
   "min": 0.8,
   "max": 1.2
  },
@@ -176,6 +193,7 @@
   "type": "unity",
   "subtype": "physical",
   "value": 0,
+  "rarity": 10,
   "min": 3,
   "max": 9
  },
@@ -186,6 +204,7 @@
   "type": "unity",
   "subtype": "elemental",
   "value": 0,
+  "rarity": 10,
   "min": 3,
   "max": 9
  },
@@ -196,6 +215,7 @@
   "type": "unity",
   "subtype": "universal",
   "value": 0,
+  "rarity": 4,
   "min": 3,
   "max": 9
  },
@@ -206,6 +226,7 @@
   "type": "tempo",
   "subtype": "physical",
   "value": 0,
+  "rarity": 8,
   "min": 4,
   "max": 8
  },
@@ -216,6 +237,7 @@
   "type": "tempo",
   "subtype": "elemental",
   "value": 0,
+  "rarity": 7,
   "min": 4,
   "max": 8
  },
@@ -226,6 +248,7 @@
   "type": "tempo",
   "subtype": "universal",
   "value": 0,
+  "rarity": 6,
   "min": 4,
   "max": 8
  },
@@ -233,9 +256,10 @@
   "index": 23,
   "row": 3,
   "col": 0,
-  "type": "critcal",
+  "type": "critical",
   "subtype": "physical",
   "value": 0,
+  "rarity": 9,
   "min": 0.05,
   "max": 0.45
  },
@@ -243,9 +267,10 @@
   "index": 24,
   "row": 3,
   "col": 1,
-  "type": "critcal",
+  "type": "critical",
   "subtype": "elemental",
   "value": 0,
+  "rarity": 6,
   "min": 0.05,
   "max": 0.45
  },
@@ -253,9 +278,10 @@
   "index": 25,
   "row": 3,
   "col": 2,
-  "type": "critcal",
+  "type": "critical",
   "subtype": "universal",
   "value": 5,
+  "rarity": 3,
   "min": 0.05,
   "max": 0.45
  },
@@ -263,9 +289,10 @@
   "index": 26,
   "row": 3,
   "col": 3,
-  "type": "critcal",
+  "type": "critical",
   "subtype": "limit",
   "value": 150,
+  "rarity": 3,
   "min": 4,
   "max": 11
  },
@@ -276,6 +303,7 @@
   "type": "overload",
   "subtype": "physical",
   "value": 0,
+  "rarity": 4,
   "min": 0.35,
   "max": 0.65
  },
@@ -286,6 +314,7 @@
   "type": "overload",
   "subtype": "elemental",
   "value": 0,
+  "rarity": 8,
   "min": 0.35,
   "max": 0.65
  },
@@ -296,6 +325,7 @@
   "type": "overload",
   "subtype": "universal",
   "value": 10,
+  "rarity": 2,
   "min": 0.35,
   "max": 0.65
  },
@@ -306,6 +336,7 @@
   "type": "overload",
   "subtype": "limit",
   "value": 75,
+  "rarity": 6,
   "min": 1.5,
   "max": 6
  },
@@ -316,6 +347,7 @@
   "type": "penetration",
   "subtype": "physical",
   "value": 0,
+  "rarity": 6,
   "min": 1,
   "max": 2
  },
@@ -326,6 +358,7 @@
   "type": "penetration",
   "subtype": "elemental",
   "value": 0,
+  "rarity": 5,
   "min": 1,
   "max": 2
  },
@@ -336,6 +369,7 @@
   "type": "penetration",
   "subtype": "universal",
   "value": 0,
+  "rarity": 1,
   "min": 1,
   "max": 2
  },
@@ -346,6 +380,7 @@
   "type": "lifesteal",
   "subtype": "physical",
   "value": 0,
+  "rarity": 4,
   "min": 3,
   "max": 5
  },
@@ -356,6 +391,7 @@
   "type": "lifesteal",
   "subtype": "elemental",
   "value": 0,
+  "rarity": 3,
   "min": 3,
   "max": 5
  },
@@ -366,6 +402,7 @@
   "type": "lifesteal",
   "subtype": "universal",
   "value": 0,
+  "rarity": 2,
   "min": 3,
   "max": 5
  },
@@ -373,29 +410,43 @@
   "index": 37,
   "row": 4,
   "col": 6,
-  "type": "specialization",
-  "subtype": "min",
-  "value": 0,
-  "min": 4,
-  "max": 12
+  "type": "lifesteal",
+  "subtype": "limit",
+  "value": 1,
+  "rarity": 1,
+  "min": 6,
+  "max": 10
  },
  {
   "index": 38,
   "row": 4,
-  "col": 7,
+  "col": 6,
   "type": "specialization",
-  "subtype": "max",
+  "subtype": "min",
   "value": 0,
+  "rarity": 4,
   "min": 4,
   "max": 12
  },
  {
   "index": 39,
   "row": 4,
+  "col": 7,
+  "type": "specialization",
+  "subtype": "max",
+  "value": 0,
+  "rarity": 4,
+  "min": 4,
+  "max": 12
+ },
+ {
+  "index": 40,
+  "row": 4,
   "col": 8,
   "type": "specialization",
   "subtype": "base",
   "value": 0,
+  "rarity": 4,
   "min": 2,
   "max": 6
  }

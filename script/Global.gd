@@ -31,6 +31,8 @@ func init_arr() -> void:
 	arr.advanced = [25, 50, 100]
 	arr.source = ["elemental", "physical"]
 	arr.order = ["primary", "secondary"]
+	arr.offense = ["critical", "overload", "lifesteal"]
+	arr.defense = ["dodge", "armor"]
 	
 
 
@@ -61,6 +63,7 @@ func init_dict() -> void:
 	init_keyword()
 	init_priority()
 	init_totem()
+	init_ultimate()
 
 
 func init_neighbor() -> void:
@@ -231,6 +234,23 @@ func init_totem() -> void:
 				data[key] = totem[key]
 		
 		dict.totem.index[totem.index] = data
+
+
+func init_ultimate() -> void:
+	dict.ultimate = {}
+	dict.ultimate.index = {}
+	
+	var path = "res://asset/json/pouri_ultimate.json"
+	var array = load_data(path)
+	
+	for ultimate in array:
+		var data = {}
+		
+		for key in ultimate:
+			if key != "index":
+				data[key] = ultimate[key]
+		
+		dict.ultimate.index[ultimate.index] = data
 
 
 func init_node() -> void:

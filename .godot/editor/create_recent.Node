@@ -1,6 +1,6 @@
 HBoxContainer
-Timer
 VBoxContainer
+Timer
 GridContainer
 TextureProgressBar
 ProgressBar

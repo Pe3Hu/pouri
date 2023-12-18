@@ -1,0 +1,98 @@
+[
+ {
+  "index": 0,
+  "primary": "strength",
+  "secondary": "dexterity",
+  "type": "performed",
+  "subtype": "wound",
+  "value": 1000
+ },
+ {
+  "index": 1,
+  "primary": "strength",
+  "secondary": "intellect",
+  "type": "performed",
+  "subtype": "resistance",
+  "value": 250
+ },
+ {
+  "index": 2,
+  "primary": "strength",
+  "secondary": "will",
+  "type": "performed",
+  "subtype": "penetration",
+  "value": 250
+ },
+ {
+  "index": 3,
+  "primary": "dexterity",
+  "secondary": "strength",
+  "type": "performed",
+  "subtype": "gesture",
+  "value": 32
+ },
+ {
+  "index": 4,
+  "primary": "dexterity",
+  "secondary": "intellect",
+  "type": "triggered",
+  "subtype": "critical",
+  "value": 4
+ },
+ {
+  "index": 5,
+  "primary": "dexterity",
+  "secondary": "will",
+  "type": "triggered",
+  "subtype": "overload",
+  "value": 8
+ },
+ {
+  "index": 6,
+  "primary": "intellect",
+  "secondary": "strength",
+  "type": "triggered",
+  "subtype": "lifesteal",
+  "value": 200
+ },
+ {
+  "index": 7,
+  "primary": "intellect",
+  "secondary": "dexterity",
+  "type": "triggered",
+  "subtype": "dodge",
+  "value": 150
+ },
+ {
+  "index": 8,
+  "primary": "intellect",
+  "secondary": "will",
+  "type": "triggered",
+  "subtype": "armor",
+  "value": 300
+ },
+ {
+  "index": 9,
+  "primary": "will",
+  "secondary": "strength",
+  "type": "wasted ",
+  "subtype": "health",
+  "value": 750
+ },
+ {
+  "index": 10,
+  "primary": "will",
+  "secondary": "dexterity",
+  "type": "wasted ",
+  "subtype": "energy",
+  "value": 300
+ },
+ {
+  "index": 11,
+  "primary": "will",
+  "secondary": "intellect",
+  "type": "wasted ",
+  "subtype": "barrier",
+  "value": 500
+ }
+]

@@ -34,3 +34,8 @@ func roll_abilities() -> void:
 			input.energy = Global.arr.advanced.pick_random()
 	
 		ability.set_attributes(input)
+
+
+func trigger_ultimate_conditions_check(conditions_: Dictionary) -> void:
+	if ultimate.condition.type == conditions_.type and ultimate.condition.subtype == conditions_.subtype:
+		ultimate.conditionCurrent.stack.change_number(conditions_.value)

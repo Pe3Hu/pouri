@@ -32,8 +32,17 @@ func use_ability(kind_: String) -> void:
 	var ability = abilities.get(kind_)
 	var energy = ability.energyChange.stack.get_number()
 	
-	if kind_ == "advanced":
-		change_energy(energy)
+	match kind_:
+		"advanced":
+			change_energy(energy)
+			var conditions = {}
+			conditions.type = "wasted"
+			conditions.subtype = "energy"
+			conditions.value = energy
+			abilities.trigger_ultimate_conditions_check(conditions)
+		"ultimate":
+			var value = -ability.conditionMax.stack.get_number()
+			ability.conditionCurrent.stack.change_number(value)
 	
 	ability.energyCooldown.start()
 
@@ -42,7 +51,13 @@ func get_damage_from_ability(ability_: MarginContainer) -> void:
 	var indicator = indicators.get("barrier")
 	var penetration = ability_.abilities.creature.tally.get_value_based_on_type_and_source("penetration", ability_.source)
 	var multiplier = tally.get_resistance_multiplier_based_on_source_and_penetration(ability_.source, penetration) 
-	var income = -round(multiplier * ability_.charge.roll)
+	var income = ability_.charge.roll
+	
+	for type in ability_.charge.trigger:
+		if type != "lifesteal":
+			income *= ability_.charge.trigger[type]
+	
+	income = -round(multiplier * income)
 	var block = tally.get_block_based_on_type_and_source("dodge", ability_.source)
 	income += income
 	
@@ -52,7 +67,35 @@ func get_damage_from_ability(ability_: MarginContainer) -> void:
 	
 	if income < 0:
 		indicator.change_value("current", income)
+		ability_.abilities.creature.rating.damage.current -= income
 		rating.health.current = indicators.get_indicator("health").get_value("current")
+		
+		var conditions = {}
+		conditions.type = "performed"
+		conditions.subtype = "wound"
+		conditions.value = income
+		ability_.abilities.trigger_ultimate_conditions_check(conditions)
+		
+		if ability_.charge.trigger.has("lifesteal"):
+			conditions.type = "triggered"
+			conditions.subtype = "lifesteal"
+			conditions.value = income * ability_.charge.trigger["lifesteal"]
+			ability_.abilities.trigger_ultimate_conditions_check(conditions)
+	
+	if penetration > 0:
+		var origin = tally.get_resistance_multiplier_based_on_source_and_penetration(ability_.source, 0) 
+		var conditions = {}
+		conditions.type = "performed"
+		conditions.subtype = "penetration"
+		conditions.value = round((origin - multiplier) * ability_.charge.roll)
+		ability_.abilities.trigger_ultimate_conditions_check(conditions)
+	
+	if multiplier > 0:
+		var conditions = {}
+		conditions.type = "performed"
+		conditions.subtype = "resistance"
+		conditions.value = round((1 - multiplier) * ability_.charge.roll)
+		ability_.abilities.trigger_ultimate_conditions_check(conditions)
 	
 	if knockout:
 		ability_.abilities.creature.target = null

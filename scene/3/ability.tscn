@@ -72,3 +72,13 @@ layout_mode = 2
 
 [node name="Cooldown" parent="HBox/Energy" instance=ExtResource("4_s8tin")]
 layout_mode = 2
+
+[node name="Condition" type="VBoxContainer" parent="HBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="Current" parent="HBox/Condition" instance=ExtResource("2_4am7g")]
+layout_mode = 2
+
+[node name="Max" parent="HBox/Condition" instance=ExtResource("2_4am7g")]
+layout_mode = 2

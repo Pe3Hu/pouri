@@ -42,6 +42,10 @@ func update_color() -> void:
 
 func change_value(limit_: String, value_: float) -> void:
 	value_ = round(value_)
+	var conditions = {}
+	conditions.type = "wasted"
+	conditions.subtype = type
+	conditions.value = value_
 	
 	match limit_:
 		"current":
@@ -51,6 +55,7 @@ func change_value(limit_: String, value_: float) -> void:
 				bar.value += value_
 			else:
 				arrear = value_ + bar.value - bar.min_value
+				conditions.value = value_ - arrear
 				bar.value = bar.min_value
 			
 			bar.value = min(bar.value, bar.max_value)
@@ -62,7 +67,8 @@ func change_value(limit_: String, value_: float) -> void:
 					"health":
 						indicators.creature.set_as_knockouted()
 			
-			value.text = str(bar.value)#type + ": " + 
+			indicators.creature.abilities.trigger_ultimate_conditions_check(conditions)
+			value.text = str(bar.value)
 		"maximum":
 			bar.max_value += value_
 
