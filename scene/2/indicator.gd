@@ -40,7 +40,9 @@ func update_color() -> void:
 		bar.set(path, style_box)
 
 
-func change_value(limit_: String, value_: int) -> void:
+func change_value(limit_: String, value_: float) -> void:
+	value_ = round(value_)
+	
 	match limit_:
 		"current":
 			var arrear = null
@@ -65,7 +67,9 @@ func change_value(limit_: String, value_: int) -> void:
 			bar.max_value += value_
 
 
-func set_value(limit_: String, value_: int) -> void:
+func set_value(limit_: String, value_: float) -> void:
+	value_ = round(value_)
+	
 	match limit_:
 		"current":
 			bar.value = value_

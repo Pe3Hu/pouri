@@ -5,7 +5,9 @@
   "col": 0,
   "type": "health",
   "subtype": "limit",
-  "value": 1000
+  "value": 1000,
+  "min": 25,
+  "max": 75
  },
  {
   "index": 1,
@@ -13,7 +15,9 @@
   "col": 1,
   "type": "health",
   "subtype": "regeneration",
-  "value": 1
+  "value": 1,
+  "min": 0.02,
+  "max": 0.08
  },
  {
   "index": 2,
@@ -21,7 +25,9 @@
   "col": 2,
   "type": "barrier",
   "subtype": "limit",
-  "value": 200
+  "value": 200,
+  "min": 5,
+  "max": 15
  },
  {
   "index": 3,
@@ -29,7 +35,9 @@
   "col": 3,
   "type": "barrier",
   "subtype": "regeneration",
-  "value": 2
+  "value": 2,
+  "min": 0.05,
+  "max": 0.15
  },
  {
   "index": 4,
@@ -37,7 +45,9 @@
   "col": 4,
   "type": "energy",
   "subtype": "limit",
-  "value": 100
+  "value": 100,
+  "min": 4,
+  "max": 6
  },
  {
   "index": 5,
@@ -45,7 +55,9 @@
   "col": 5,
   "type": "energy",
   "subtype": "regeneration",
-  "value": 2
+  "value": 2,
+  "min": 0.05,
+  "max": 0.15
  },
  {
   "index": 6,
@@ -53,7 +65,9 @@
   "col": 0,
   "type": "resistance",
   "subtype": "physical",
-  "value": 20
+  "value": 0,
+  "min": 1,
+  "max": 3
  },
  {
   "index": 7,
@@ -61,166 +75,328 @@
   "col": 1,
   "type": "resistance",
   "subtype": "elemental",
-  "value": 20
+  "value": 0,
+  "min": 1,
+  "max": 3
  },
  {
   "index": 8,
   "row": 1,
   "col": 2,
   "type": "resistance",
-  "subtype": "limit",
-  "value": 50
+  "subtype": "universal",
+  "value": 20,
+  "min": 1,
+  "max": 3
  },
  {
   "index": 9,
   "row": 1,
   "col": 3,
-  "type": "chance",
-  "subtype": "limit",
-  "value": 5
+  "type": "dodge",
+  "subtype": "physical",
+  "value": 0,
+  "min": 0.2,
+  "max": 0.3
  },
  {
   "index": 10,
   "row": 1,
   "col": 4,
-  "type": "penetration",
-  "subtype": "physical",
-  "value": 0
+  "type": "dodge",
+  "subtype": "elemental",
+  "value": 0,
+  "min": 0.2,
+  "max": 0.3
  },
  {
   "index": 11,
   "row": 1,
   "col": 5,
-  "type": "penetration",
-  "subtype": "elemental",
-  "value": 0
+  "type": "dodge",
+  "subtype": "universal",
+  "value": 5,
+  "min": 0.2,
+  "max": 0.3
  },
  {
   "index": 12,
-  "row": 2,
-  "col": 0,
-  "type": "power",
-  "subtype": "physical",
-  "value": 0
+  "row": 1,
+  "col": 6,
+  "type": "dodge",
+  "subtype": "limit",
+  "value": 200,
+  "min": 6,
+  "max": 14
  },
  {
   "index": 13,
-  "row": 2,
-  "col": 1,
-  "type": "power",
-  "subtype": "elemental",
-  "value": 0
+  "row": 1,
+  "col": 7,
+  "type": "armor",
+  "subtype": "physical",
+  "value": 0,
+  "min": 1,
+  "max": 4
  },
  {
   "index": 14,
-  "row": 2,
-  "col": 2,
-  "type": "power",
-  "subtype": "buff",
-  "value": 0
+  "row": 1,
+  "col": 8,
+  "type": "armor",
+  "subtype": "elemental",
+  "value": 0,
+  "min": 1,
+  "max": 4
  },
  {
   "index": 15,
-  "row": 2,
-  "col": 3,
-  "type": "duration",
-  "subtype": "buff",
-  "value": 0
+  "row": 1,
+  "col": 9,
+  "type": "armor",
+  "subtype": "universal",
+  "value": 50,
+  "min": 1,
+  "max": 4
  },
  {
   "index": 16,
-  "row": 2,
-  "col": 4,
-  "type": "power",
-  "subtype": "debuff",
-  "value": 0
+  "row": 1,
+  "col": 10,
+  "type": "armor",
+  "subtype": "limit",
+  "value": 20,
+  "min": 0.8,
+  "max": 1.2
  },
  {
   "index": 17,
   "row": 2,
-  "col": 5,
-  "type": "duration",
-  "subtype": "debuff",
-  "value": 0
+  "col": 0,
+  "type": "unity",
+  "subtype": "physical",
+  "value": 0,
+  "min": 3,
+  "max": 9
  },
  {
   "index": 18,
-  "row": 3,
-  "col": 0,
-  "type": "duration",
-  "subtype": "ordinary",
-  "value": 0
+  "row": 2,
+  "col": 1,
+  "type": "unity",
+  "subtype": "elemental",
+  "value": 0,
+  "min": 3,
+  "max": 9
  },
  {
   "index": 19,
-  "row": 3,
-  "col": 1,
-  "type": "duration",
-  "subtype": "advanced",
-  "value": 0
+  "row": 2,
+  "col": 2,
+  "type": "unity",
+  "subtype": "universal",
+  "value": 0,
+  "min": 3,
+  "max": 9
  },
  {
   "index": 20,
-  "row": 3,
-  "col": 2,
-  "type": "chance",
-  "subtype": "critcal",
-  "value": 5
+  "row": 2,
+  "col": 3,
+  "type": "tempo",
+  "subtype": "physical",
+  "value": 0,
+  "min": 4,
+  "max": 8
  },
  {
   "index": 21,
-  "row": 3,
-  "col": 3,
-  "type": "power",
-  "subtype": "critcal",
-  "value": 150
+  "row": 2,
+  "col": 4,
+  "type": "tempo",
+  "subtype": "elemental",
+  "value": 0,
+  "min": 4,
+  "max": 8
  },
  {
   "index": 22,
-  "row": 3,
-  "col": 4,
-  "type": "chance",
-  "subtype": "overload",
-  "value": 15
+  "row": 2,
+  "col": 5,
+  "type": "tempo",
+  "subtype": "universal",
+  "value": 0,
+  "min": 4,
+  "max": 8
  },
  {
   "index": 23,
   "row": 3,
-  "col": 5,
-  "type": "power",
-  "subtype": "overload",
-  "value": 100
+  "col": 0,
+  "type": "critcal",
+  "subtype": "physical",
+  "value": 0,
+  "min": 0.05,
+  "max": 0.45
  },
  {
   "index": 24,
-  "row": 4,
-  "col": 0,
-  "type": "lifesteal",
-  "subtype": "physical",
-  "value": 0
+  "row": 3,
+  "col": 1,
+  "type": "critcal",
+  "subtype": "elemental",
+  "value": 0,
+  "min": 0.05,
+  "max": 0.45
  },
  {
   "index": 25,
-  "row": 4,
-  "col": 1,
-  "type": "lifesteal",
-  "subtype": "elemental",
-  "value": 0
+  "row": 3,
+  "col": 2,
+  "type": "critcal",
+  "subtype": "universal",
+  "value": 5,
+  "min": 0.05,
+  "max": 0.45
  },
  {
   "index": 26,
-  "row": 4,
-  "col": 2,
-  "type": "lifesteal",
-  "subtype": "all",
-  "value": 0
+  "row": 3,
+  "col": 3,
+  "type": "critcal",
+  "subtype": "limit",
+  "value": 150,
+  "min": 4,
+  "max": 11
  },
  {
   "index": 27,
+  "row": 3,
+  "col": 4,
+  "type": "overload",
+  "subtype": "physical",
+  "value": 0,
+  "min": 0.35,
+  "max": 0.65
+ },
+ {
+  "index": 28,
+  "row": 3,
+  "col": 5,
+  "type": "overload",
+  "subtype": "elemental",
+  "value": 0,
+  "min": 0.35,
+  "max": 0.65
+ },
+ {
+  "index": 29,
+  "row": 3,
+  "col": 6,
+  "type": "overload",
+  "subtype": "universal",
+  "value": 10,
+  "min": 0.35,
+  "max": 0.65
+ },
+ {
+  "index": 30,
+  "row": 3,
+  "col": 7,
+  "type": "overload",
+  "subtype": "limit",
+  "value": 75,
+  "min": 1.5,
+  "max": 6
+ },
+ {
+  "index": 31,
+  "row": 4,
+  "col": 0,
+  "type": "penetration",
+  "subtype": "physical",
+  "value": 0,
+  "min": 1,
+  "max": 2
+ },
+ {
+  "index": 32,
+  "row": 4,
+  "col": 1,
+  "type": "penetration",
+  "subtype": "elemental",
+  "value": 0,
+  "min": 1,
+  "max": 2
+ },
+ {
+  "index": 33,
+  "row": 4,
+  "col": 2,
+  "type": "penetration",
+  "subtype": "universal",
+  "value": 0,
+  "min": 1,
+  "max": 2
+ },
+ {
+  "index": 34,
   "row": 4,
   "col": 3,
-  "type": "resistance",
-  "subtype": "debuff",
-  "value": 0
+  "type": "lifesteal",
+  "subtype": "physical",
+  "value": 0,
+  "min": 3,
+  "max": 5
+ },
+ {
+  "index": 35,
+  "row": 4,
+  "col": 4,
+  "type": "lifesteal",
+  "subtype": "elemental",
+  "value": 0,
+  "min": 3,
+  "max": 5
+ },
+ {
+  "index": 36,
+  "row": 4,
+  "col": 5,
+  "type": "lifesteal",
+  "subtype": "universal",
+  "value": 0,
+  "min": 3,
+  "max": 5
+ },
+ {
+  "index": 37,
+  "row": 4,
+  "col": 6,
+  "type": "specialization",
+  "subtype": "min",
+  "value": 0,
+  "min": 4,
+  "max": 12
+ },
+ {
+  "index": 38,
+  "row": 4,
+  "col": 7,
+  "type": "specialization",
+  "subtype": "max",
+  "value": 0,
+  "min": 4,
+  "max": 12
+ },
+ {
+  "index": 39,
+  "row": 4,
+  "col": 8,
+  "type": "specialization",
+  "subtype": "base",
+  "value": 0,
+  "min": 2,
+  "max": 6
  }
 ]

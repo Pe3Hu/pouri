@@ -5,6 +5,8 @@ extends MarginContainer
 @onready var tally = $HBox/Tally
 @onready var indicators = $HBox/VBox/HBox/Indicators
 @onready var abilities = $HBox/VBox/Abilities
+@onready var tattoo = $HBox/Tattoo
+@onready var totem = $HBox/Totem
 
 var tribe = null
 var troop = null
@@ -19,9 +21,11 @@ func set_attributes(input_: Dictionary) -> void:
 	var input = {}
 	input.creature = self
 	tally.set_attributes(input)
+	totem.set_attributes(input)
 	core.set_attributes(input)
 	indicators.set_attributes(input)
 	abilities.set_attributes(input)
+	tattoo.set_attributes(input)
 
 
 func use_ability(kind_: String) -> void:
@@ -36,10 +40,19 @@ func use_ability(kind_: String) -> void:
 
 func get_damage_from_ability(ability_: MarginContainer) -> void:
 	var indicator = indicators.get("barrier")
-	var multiplier = tally.resistance[ability_.source]
-	var damage = -round(multiplier * ability_.damage.roll)
-	indicator.change_value("current", damage)
-	rating.health.current = indicators.get_indicator("health").get_value("current")
+	var penetration = ability_.abilities.creature.tally.get_value_based_on_type_and_source("penetration", ability_.source)
+	var multiplier = tally.get_resistance_multiplier_based_on_source_and_penetration(ability_.source, penetration) 
+	var income = -round(multiplier * ability_.charge.roll)
+	var block = tally.get_block_based_on_type_and_source("dodge", ability_.source)
+	income += income
+	
+	if income < 0:
+		block = tally.get_block_based_on_type_and_source("armor", ability_.source)
+		income += income
+	
+	if income < 0:
+		indicator.change_value("current", income)
+		rating.health.current = indicators.get_indicator("health").get_value("current")
 	
 	if knockout:
 		ability_.abilities.creature.target = null
@@ -85,8 +98,7 @@ func set_as_knockouted() -> void:
 func active_passive_regeneration() -> void:
 	for type in Global.arr.indicator:
 		var indicator = indicators.get_indicator(type)
-		var parameter = tally.get_parameter(type, "regeneration")
-		var value = parameter.value.get_number()
+		var value = tally.get_regeneration(type)
 		indicator.change_value("current", value)
 
 

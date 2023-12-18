@@ -43,24 +43,24 @@ layout_mode = 2
 [node name="Type" parent="HBox/Priority" instance=ExtResource("2_8us5a")]
 layout_mode = 2
 
-[node name="Speed" type="VBoxContainer" parent="HBox"]
+[node name="Tempo" type="VBoxContainer" parent="HBox"]
 layout_mode = 2
 alignment = 1
 
-[node name="Cast" parent="HBox/Speed" instance=ExtResource("2_4am7g")]
+[node name="Cast" parent="HBox/Tempo" instance=ExtResource("2_4am7g")]
 layout_mode = 2
 
-[node name="Echo" parent="HBox/Speed" instance=ExtResource("2_4am7g")]
+[node name="Echo" parent="HBox/Tempo" instance=ExtResource("2_4am7g")]
 layout_mode = 2
 
-[node name="Damage" type="VBoxContainer" parent="HBox"]
+[node name="Сharge" type="VBoxContainer" parent="HBox"]
 layout_mode = 2
 alignment = 1
 
-[node name="Min" parent="HBox/Damage" instance=ExtResource("2_4am7g")]
+[node name="Min" parent="HBox/Сharge" instance=ExtResource("2_4am7g")]
 layout_mode = 2
 
-[node name="Max" parent="HBox/Damage" instance=ExtResource("2_4am7g")]
+[node name="Max" parent="HBox/Сharge" instance=ExtResource("2_4am7g")]
 layout_mode = 2
 
 [node name="Energy" type="VBoxContainer" parent="HBox"]

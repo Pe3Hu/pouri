@@ -12,22 +12,17 @@ func set_attributes(input_: Dictionary) -> void:
 	ability = input_.ability
 	
 	custom_minimum_size = Global.vec.size.couple
-	update_cooldown()
 
 
 func update_cooldown() -> void:
-	var value = ability.speedCast.stack.get_number()
-	set_max(value)
-
-
-func set_max(max_: float) -> void:
-	if max_ > 0:
-		bar.max_value = max_
-		timer.wait_time = max_
+	var value = ability.tempoCast.stack.get_number()
+	
+	if value > 0:
+		bar.max_value = value
+		timer.wait_time = value
 	else:
 		bar.max_value = timer.wait_time
 		bar.visible = false
-
 
 func start() -> void:
 	tween = create_tween()

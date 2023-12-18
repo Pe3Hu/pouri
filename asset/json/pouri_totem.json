@@ -1,0 +1,58 @@
+[
+ {
+  "index": 0,
+  "primary aspect": "strength",
+  "secondary aspect": "strength",
+  "type A": "health",
+  "subtype A": "limit",
+  "multiplier A": 5,
+  "type B": "health",
+  "subtype B": "regeneration",
+  "multiplier B": 0.1,
+  "type C": "specialization",
+  "subtype C": "base",
+  "multiplier C": 0.01
+ },
+ {
+  "index": 1,
+  "primary aspect": "dexterity",
+  "secondary aspect": "dexterity",
+  "type A": "dodge",
+  "subtype A": "limit",
+  "multiplier A": 6,
+  "type B": "dodge",
+  "subtype B": "universal",
+  "multiplier B": 0.05,
+  "type C": "tempo",
+  "subtype C": "universal",
+  "multiplier C": 0.03
+ },
+ {
+  "index": 2,
+  "primary aspect": "intellect",
+  "secondary aspect": "intellect",
+  "type A": "barrier",
+  "subtype A": "limit",
+  "multiplier A": 3,
+  "type B": "barrier",
+  "subtype B": "regeneration",
+  "multiplier B": 0.2,
+  "type C": "specialization",
+  "subtype C": "min",
+  "multiplier C": 0.02
+ },
+ {
+  "index": 3,
+  "primary aspect": "will",
+  "secondary aspect": "will",
+  "type A": "armor",
+  "subtype A": "limit",
+  "multiplier A": 2,
+  "type B": "armor",
+  "subtype B": "universal",
+  "multiplier B": 0.15,
+  "type C": "specialization",
+  "subtype C": "max",
+  "multiplier C": 0.02
+ }
+]

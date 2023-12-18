@@ -3,10 +3,10 @@ extends MarginContainer
 
 @onready var priorityExtreme = $HBox/Priority/Extreme
 @onready var priorityType = $HBox/Priority/Type
-@onready var speedCast = $HBox/Speed/Cast
-@onready var speedEcho = $HBox/Speed/Echo
-@onready var damageMin = $HBox/Damage/Min
-@onready var damageMax = $HBox/Damage/Max
+@onready var tempoCast = $HBox/Tempo/Cast
+@onready var tempoEcho = $HBox/Tempo/Echo
+@onready var chargeMin = $HBox/Сharge/Min
+@onready var chargeMax = $HBox/Сharge/Max
 @onready var energyChange = $HBox/Energy/Change
 @onready var energyCooldown = $HBox/Energy/Cooldown
 
@@ -18,7 +18,7 @@ var keyword = null
 var cast = {}
 var source = null
 var echo = null
-var damage = {}
+var charge = {}
 var energy = null
 
 
@@ -45,6 +45,9 @@ func set_attributes(input_: Dictionary) -> void:
 
 func init_icons() -> void:
 	var input = {}
+	input.ability = self
+	energyCooldown.set_attributes(input)
+	
 	input.proprietor = self
 	input.type = "priority"
 	input.subtype = priority.extreme
@@ -55,61 +58,69 @@ func init_icons() -> void:
 	
 	input.type = "ability"
 	input.subtype = "cast"
-	input.value = cast.duration
-	speedCast.set_attributes(input)
+	input.value = 0
+	tempoCast.set_attributes(input)
+	update_tempo()
 	
 	input.subtype = "echo"
 	input.value = echo
-	speedEcho.set_attributes(input)
+	tempoEcho.set_attributes(input)
 	
 	input.subtype = "echo"
 	input.value = 0
-	damageMin.set_attributes(input)
+	chargeMin.set_attributes(input)
 	
 	input.subtype = "echo"
 	input.value = 0
-	damageMax.set_attributes(input)
-	update_damage()
+	chargeMax.set_attributes(input)
+	update_charge()
 	
 	input.subtype = "energy"
 	input.value = -energy
 	energyChange.set_attributes(input)
 	
-	input.ability = self
-	energyCooldown.set_attributes(input)
 
 
-func update_damage() -> void:
-	damage.base = weight
+func update_charge() -> void:
+	charge.base = weight
+	var tally = abilities.creature.tally
 	
 	if kind != "ultimate":
-		damage.base = round(weight / (6 / cast.duration))
+		charge.base = snapped(weight / (6 / cast.duration) * tally.get_specialization_multiplier("base"), 0.1)
 	
-	var extremes = ["Min", "Max"]
+	var extremes = ["min", "max"]
 	var scatter = Global.dict.keyword.title[keyword].scatter
-	scatter = round(damage.base * scatter / 100.0)
+	scatter = snapped(charge.base * scatter / 100.0, 0.1)
 	
 	for extreme in extremes:
-		var couple = get("damage" + extreme)
+		var couple = get("charge" + extreme.capitalize())
 		var _sign = 1
 		
-		if extreme == "Min":
+		if extreme == "min":
 			_sign = -1
 		
-		var value = damage.base + scatter * _sign
-		couple.stack.set_number(value)
+		charge[extreme] = charge.base + scatter * _sign
+		charge[extreme] = snapped(charge[extreme] * tally.get_specialization_multiplier(extreme), 0.1)
+		couple.stack.set_number(charge[extreme])
 
 
-func roll_damage() -> void:
+func update_tempo() -> void:
+	var multiplier = abilities.creature.tally.get_tempo_multiplier_based_on_source(source)
+	var value = float(cast.duration) / multiplier
+	tempoCast.stack.set_number(value)
+	energyCooldown.update_cooldown()
+
+
+func roll_charge() -> void:
 	var extremes = ["Min", "Max"]
 	var value = {}
 	
 	for extreme in extremes:
-		var couple = get("damage" + extreme)
+		var couple = get("charge" + extreme)
 		value[extreme] = couple.stack.get_number()
 
 	Global.rng.randomize()
-	damage.roll = Global.rng.randi_range(value["Min"], value["Max"])
+	charge.roll = Global.rng.randf_range(value["Min"], value["Max"])
 
 
 func energy_check() -> bool:
@@ -129,8 +140,8 @@ func apply_effects() -> void:
 	
 	for _i in echo:
 		if abilities.creature.target != null:
-			roll_damage()
-			abilities.creature.rating.health.current += damage.roll
+			roll_charge()
+			abilities.creature.rating.health.current += charge.roll
 			abilities.creature.target.get_damage_from_ability(self)
 			
 			if kind == "ordinary":

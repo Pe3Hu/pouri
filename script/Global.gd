@@ -30,6 +30,7 @@ func init_arr() -> void:
 	arr.ability = ["ordinary", "advanced", "ultimate"]
 	arr.advanced = [25, 50, 100]
 	arr.source = ["elemental", "physical"]
+	arr.order = ["primary", "secondary"]
 	
 
 
@@ -47,14 +48,19 @@ func init_num() -> void:
 	num.weight.energy = 7.2
 	num.weight.ordinary = 60
 	num.weight.ultimate = 1000
+	
+	num.aspect = {}
+	num.aspect.primary = 0.6
+	num.aspect.secondary = 0.4
 
 
 func init_dict() -> void:
 	init_neighbor()
+	init_cast()
 	init_parameter()
 	init_keyword()
 	init_priority()
-	init_cast()
+	init_totem()
 
 
 func init_neighbor() -> void:
@@ -199,6 +205,34 @@ func init_priority() -> void:
 		dict.priority.index[priority.index] = data
 
 
+func init_totem() -> void:
+	dict.totem = {}
+	dict.totem.index = {}
+	
+	var path = "res://asset/json/pouri_totem.json"
+	var array = load_data(path)
+	
+	for totem in array:
+		var data = {}
+		data.bonus = {}
+		data.aspect = {}
+		
+		for key in totem:
+			if key != "index":
+				var words = key.split(" ")
+				
+				if words.has("aspect"):
+					data.aspect[words[0]] = totem[key]
+				else:
+					if !data.bonus.has(words[1]):
+						data.bonus[words[1]] = {}
+					
+					data.bonus[words[1]][words[0]] = totem[key]
+				data[key] = totem[key]
+		
+		dict.totem.index[totem.index] = data
+
+
 func init_node() -> void:
 	node.game = get_node("/root/Game")
 
@@ -230,7 +264,6 @@ func init_vec():
 	vec.size.parameter = Vector2(64, 64)
 	vec.size.couple = Vector2(48, 48)
 	vec.size.land = Vector2(32, 32)
-	
 	
 	init_window_size()
 

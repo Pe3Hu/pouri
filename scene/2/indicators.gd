@@ -22,8 +22,7 @@ func init_bars() -> void:
 	for type in Global.arr.indicator:
 		var indicator = get(type)
 		input.type = type
-		var parameter = creature.tally.get_parameter(type, "limit")
-		input.max = parameter.value.get_number()
+		input.max = creature.tally.get_limit(type)
 		
 		if type == "energy":
 			input.type = Global.dict.energy.type[creature.core.primary]

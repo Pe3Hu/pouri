@@ -37,4 +37,3 @@ func init_battleground() -> void:
 		troop.set_attributes(input)
 	
 	battleground.start()
-	

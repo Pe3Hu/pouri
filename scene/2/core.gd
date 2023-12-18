@@ -79,3 +79,10 @@ func init_particles() -> void:
 	
 	primary = datas[0].particle.type
 	secondary = datas[1].particle.type
+	creature.totem.set_index()
+	
+	for order in Global.arr.order:
+		var type = get(order)
+		var particle = get(type)
+		var value = particle.value.get_number()
+		creature.totem.apply_bonuses(order, value)
