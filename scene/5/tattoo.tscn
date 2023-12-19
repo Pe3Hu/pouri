@@ -1,10 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://b1mc0hqvbw3l0"]
+[gd_scene load_steps=3 format=3 uid="uid://ds47n5r8t3fmq"]
 
-[ext_resource type="Script" path="res://scene/2/totem.gd" id="1_q0gey"]
+[ext_resource type="Script" path="res://scene/5/tattoo.gd" id="1_i7w7c"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7paps"]
 
-[node name="Totem" type="MarginContainer"]
+[node name="Tattoo" type="MarginContainer"]
 custom_minimum_size = Vector2(5, 5)
 anchors_preset = 8
 anchor_left = 0.5
@@ -19,9 +19,12 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-script = ExtResource("1_q0gey")
+script = ExtResource("1_i7w7c")
 
 [node name="BG" type="Panel" parent="."]
 visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_7paps")
+
+[node name="Ornaments" type="GridContainer" parent="."]
+layout_mode = 2

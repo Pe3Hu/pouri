@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csx23pmqgdwr6"
-path="res://.godot/imported/7.png-e9471c1dac986c6e0258dcb3b5bb3cb8.ctex"
+uid="uid://ht37hc7ky1gv"
+path="res://.godot/imported/4.png-9ca84e9de1b4e1fb6c94b2d0e1af0e3d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/png/tatto/7.png"
-dest_files=["res://.godot/imported/7.png-e9471c1dac986c6e0258dcb3b5bb3cb8.ctex"]
+source_file="res://asset/png/ornament/4.png"
+dest_files=["res://.godot/imported/4.png-9ca84e9de1b4e1fb6c94b2d0e1af0e3d.ctex"]
 
 [params]
 

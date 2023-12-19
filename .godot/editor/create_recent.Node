@@ -1,6 +1,7 @@
-HBoxContainer
 VBoxContainer
-Timer
+HBoxContainer
 GridContainer
+MarginContainer
+Timer
 TextureProgressBar
 ProgressBar

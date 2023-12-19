@@ -1,0 +1,45 @@
+[
+ {
+  "order": 0,
+  "strength": 4
+ },
+ {
+  "order": 1,
+  "strength": 2,
+  "dexterity": 2
+ },
+ {
+  "order": 2,
+  "dexterity": 4
+ },
+ {
+  "order": 3,
+  "dexterity": 2,
+  "intellect": 2
+ },
+ {
+  "order": 4,
+  "strength": 1,
+  "dexterity": 1,
+  "intellect": 1,
+  "will": 1
+ },
+ {
+  "order": 5,
+  "dexterity": 2,
+  "will": 2
+ },
+ {
+  "order": 6,
+  "intellect": 4
+ },
+ {
+  "order": 7,
+  "intellect": 2,
+  "will": 2
+ },
+ {
+  "order": 8,
+  "will": 4
+ }
+]

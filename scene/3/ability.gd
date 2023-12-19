@@ -25,6 +25,7 @@ var echo = null
 var charge = {}
 var energy = null
 var condition = {}
+var trophies = []
 
 
 func set_attributes(input_: Dictionary) -> void:
@@ -105,11 +106,12 @@ func set_condition() -> void:
 	for index in Global.dict.ultimate.index:
 		var description = Global.dict.ultimate.index[index]
 		
-		if description.primary == core.primary and description.secondary == core.secondary:
+		if description.particle.primary == core.primary and description.particle.secondary == core.secondary:
+			condition = Dictionary(description.condition)
 			condition.index = index
-			condition.type = description.type
-			condition.subtype = description.subtype
-			condition.value = description.value
+			#condition.type = description.condition.type
+			#condition.subtype = description.condition.subtype
+			#condition.value = description.condition.value
 
 
 func update_charge() -> void:
@@ -140,7 +142,7 @@ func update_tempo() -> void:
 		var multiplier = abilities.creature.tally.get_tempo_multiplier_based_on_source(source)
 		var value = float(cast.duration) / multiplier
 		tempoCast.stack.set_number(value)
-		energyCooldown.update_cooldown()
+		energyCooldown.update_duration()
 
 
 func roll_charge() -> void:

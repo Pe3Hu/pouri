@@ -40,3 +40,6 @@ layout_mode = 2
 
 [node name="Energy" parent="VBox/Bars" instance=ExtResource("1_3xbtx")]
 layout_mode = 2
+
+[node name="Experience" parent="VBox/Bars" instance=ExtResource("1_3xbtx")]
+layout_mode = 2

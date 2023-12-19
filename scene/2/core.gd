@@ -6,6 +6,7 @@ extends MarginContainer
 @onready var dexterity = $Particles/Dexterity
 @onready var intellect = $Particles/Intellect
 @onready var will = $Particles/Will
+@onready var level = $Level
 
 var creature = null
 var primary = null
@@ -21,6 +22,9 @@ func set_attributes(input_: Dictionary) -> void:
 func init_particles() -> void:
 	var input = {}
 	input.core = self
+	input.type = "level"
+	input.value = 1
+	level.set_attributes(input)
 	var retained = int(Global.num.core.base)
 	var options = {}
 	
@@ -86,3 +90,13 @@ func init_particles() -> void:
 		var particle = get(type)
 		var value = particle.value.get_number()
 		creature.totem.apply_bonuses(order, value)
+
+
+func get_experience_multiplier_based_on_level_difference(creature_: MarginContainer) -> float:
+	var difference = level.value.get_number() - creature_.core.level.value.get_number()
+	var multiplier = pow(abs(difference) + 10, 2) / 100
+	
+	if difference > 0:
+		multiplier = 1 / multiplier
+	
+	return multiplier

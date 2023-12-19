@@ -1,0 +1,153 @@
+[
+ {
+  "index": 0,
+  "type": "specialization",
+  "subtype": "base",
+  "temporary": 15,
+  "permanent": 5
+ },
+ {
+  "index": 1,
+  "type": "specialization",
+  "subtype": "min",
+  "temporary": 30,
+  "permanent": 10
+ },
+ {
+  "index": 2,
+  "type": "specialization",
+  "subtype": "max",
+  "temporary": 30,
+  "permanent": 10
+ },
+ {
+  "index": 3,
+  "type": "health",
+  "subtype": "limit",
+  "permanent": 200
+ },
+ {
+  "index": 4,
+  "type": "energy",
+  "subtype": "limit",
+  "permanent": 25
+ },
+ {
+  "index": 5,
+  "type": "barrier",
+  "subtype": "limit",
+  "permanent": 50
+ },
+ {
+  "index": 6,
+  "type": "dodge",
+  "subtype": "limit",
+  "temporary": 120,
+  "permanent": 40
+ },
+ {
+  "index": 7,
+  "type": "armor",
+  "subtype": "limit",
+  "temporary": 45,
+  "permanent": 15
+ },
+ {
+  "index": 8,
+  "type": "critical",
+  "subtype": "limit",
+  "temporary": 120,
+  "permanent": 40
+ },
+ {
+  "index": 9,
+  "type": "overload",
+  "subtype": "limit",
+  "temporary": 40,
+  "permanent": 20
+ },
+ {
+  "index": 10,
+  "type": "lifesteal",
+  "subtype": "limit",
+  "temporary": 48,
+  "permanent": 16
+ },
+ {
+  "index": 11,
+  "type": "resistance",
+  "subtype": "universal",
+  "temporary": 50,
+  "permanent": 25
+ },
+ {
+  "index": 12,
+  "type": "armor",
+  "subtype": "universal",
+  "temporary": 30,
+  "permanent": 10
+ },
+ {
+  "index": 13,
+  "type": "dodge",
+  "subtype": "universal",
+  "temporary": 15,
+  "permanent": 5
+ },
+ {
+  "index": 14,
+  "type": "tempo",
+  "subtype": "universal",
+  "temporary": 54,
+  "permanent": 18
+ },
+ {
+  "index": 15,
+  "type": "penetration",
+  "subtype": "universal",
+  "temporary": 21,
+  "permanent": 7
+ },
+ {
+  "index": 16,
+  "type": "critical",
+  "subtype": "universal",
+  "temporary": 12,
+  "permanent": 4
+ },
+ {
+  "index": 17,
+  "type": "overload",
+  "subtype": "universal",
+  "temporary": 24,
+  "permanent": 8
+ },
+ {
+  "index": 18,
+  "type": "lifesteal",
+  "subtype": "universal",
+  "temporary": 27,
+  "permanent": 9
+ },
+ {
+  "index": 19,
+  "type": "health",
+  "subtype": "regeneration",
+  "temporary": 9,
+  "permanent": 3
+ },
+ {
+  "index": 20,
+  "type": "energy",
+  "subtype": "regeneration",
+  "temporary": 3,
+  "permanent": 1
+ },
+ {
+  "index": 21,
+  "type": "barrier",
+  "subtype": "regeneration",
+  "temporary": 6,
+  "permanent": 2
+ }
+]

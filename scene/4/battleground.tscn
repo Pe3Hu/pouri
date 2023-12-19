@@ -26,10 +26,18 @@ visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_7paps")
 
-[node name="Troops" type="VBoxContainer" parent="."]
+[node name="Timer" type="Timer" parent="."]
+
+[node name="VBox" type="VBoxContainer" parent="."]
 layout_mode = 2
 alignment = 1
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Troops" type="VBoxContainer" parent="VBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="Ornaments" type="VBoxContainer" parent="VBox"]
+layout_mode = 2
+alignment = 1
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

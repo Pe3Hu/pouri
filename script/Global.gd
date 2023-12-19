@@ -33,7 +33,6 @@ func init_arr() -> void:
 	arr.order = ["primary", "secondary"]
 	arr.offense = ["critical", "overload", "lifesteal"]
 	arr.defense = ["dodge", "armor"]
-	
 
 
 func init_num() -> void:
@@ -64,6 +63,9 @@ func init_dict() -> void:
 	init_priority()
 	init_totem()
 	init_ultimate()
+	init_buff()
+	init_experience()
+	init_ornament()
 
 
 func init_neighbor() -> void:
@@ -149,6 +151,11 @@ func init_cast() -> void:
 func init_parameter() -> void:
 	dict.parameter = {}
 	dict.parameter.index = {}
+	dict.parameter.rarity = {}
+	dict.parameter.rarity.common = {}
+	
+	for particle in arr.particle:
+		dict.parameter.rarity[particle] = {}
 	
 	var path = "res://asset/json/pouri_parameter.json"
 	var array = load_data(path)
@@ -161,6 +168,12 @@ func init_parameter() -> void:
 				data[key] = parameter[key]
 		
 		dict.parameter.index[parameter.index] = data
+		
+		for particle in arr.particle:
+			if parameter.has(particle):
+				dict.parameter.rarity[particle][parameter.index] = parameter[particle]
+		
+		dict.parameter.rarity.common[parameter.index] = parameter.rarity
 
 
 func init_keyword() -> void:
@@ -245,12 +258,68 @@ func init_ultimate() -> void:
 	
 	for ultimate in array:
 		var data = {}
+		data.particle = {}
+		data.condition = {}
+		data.buff = {}
 		
 		for key in ultimate:
 			if key != "index":
-				data[key] = ultimate[key]
+				var words = key.split(" ")
+				
+				if words[0] != "buff":
+					data[words[0]][words[1]] = ultimate[key]
+				else:
+					if !data[words[0]].has(words[2]):
+						data[words[0]][words[2]] = {}
+					
+					data[words[0]][words[2]][words[1]] = ultimate[key]
 		
 		dict.ultimate.index[ultimate.index] = data
+
+
+func init_buff() -> void:
+	dict.buff = {}
+	dict.buff.index = {}
+	
+	var path = "res://asset/json/pouri_buff.json"
+	var array = load_data(path)
+	
+	for buff in array:
+		var data = {}
+		
+		for key in buff:
+			if key != "index":
+				data[key] = buff[key]
+		
+		dict.buff.index[buff.index] = data
+
+
+func init_experience() -> void:
+	dict.experience = {}
+	dict.experience.level = {}
+	
+	var path = "res://asset/json/pouri_experience.json"
+	var array = load_data(path)
+	
+	for experience in array:
+		dict.experience.level[int(experience.level)] = experience.limit
+
+
+func init_ornament() -> void:
+	dict.ornament = {}
+	dict.ornament.order = {}
+	
+	var path = "res://asset/json/pouri_ornament.json"
+	var array = load_data(path)
+	
+	for ornament in array:
+		var data = {}
+		
+		for key in ornament:
+			if key != "order":
+				data[key] = ornament[key]
+		
+		dict.ornament.order[ornament.order] = data
 
 
 func init_node() -> void:
@@ -265,8 +334,13 @@ func init_scene() -> void:
 	scene.particle = load("res://scene/2/particle.tscn")
 	scene.parameter = load("res://scene/2/parameter.tscn")
 	
+	scene.buff = load("res://scene/3/buff.tscn")
+	
 	scene.land = load("res://scene/4/land.tscn")
 	scene.battleground = load("res://scene/4/battleground.tscn")
+	
+	scene.ornament = load("res://scene/5/ornament.tscn")
+	scene.perk = load("res://scene/5/perk.tscn")
 
 
 func init_vec():
@@ -299,10 +373,11 @@ func init_color():
 	var h = 360.0
 	
 	color.particle = {}
-	color.particle.strength = Color.from_hsv(0 / h, 0.9, 0.7)
-	color.particle.dexterity = Color.from_hsv(120 / h, 0.9, 0.7)
-	color.particle.intellect = Color.from_hsv(210 / h, 0.9, 0.7)
-	color.particle.will = Color.from_hsv(60 / h, 0.9, 0.7)
+	color.particle.strength = Color.from_hsv(0 / h, 0.8, 0.6)
+	color.particle.dexterity = Color.from_hsv(120 / h, 0.8, 0.6)
+	color.particle.intellect = Color.from_hsv(210 / h, 0.8, 0.6)
+	color.particle.will = Color.from_hsv(60 / h, 0.8, 0.6)
+	color.particle.level = Color.from_hsv(0 / h, 0.0, 0.75)
 	
 	color.indicator = {}
 	color.indicator.health = {}
@@ -317,6 +392,9 @@ func init_color():
 	color.indicator.fury = {}
 	color.indicator.fury.fill = Color.from_hsv(270 / h, 0.9, 0.7)
 	color.indicator.fury.background = Color.from_hsv(270 / h, 0.5, 0.9)
+	color.indicator.experience = {}
+	color.indicator.experience.fill = Color.from_hsv(60 / h, 0.9, 0.7)
+	color.indicator.experience.background = Color.from_hsv(60 / h, 0.5, 0.9)
 
 
 func save(path_: String, data_: String):

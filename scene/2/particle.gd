@@ -20,5 +20,8 @@ func set_attributes(input_: Dictionary) -> void:
 	input.type = "number"
 	input.subtype = input_.value
 	value.set_attributes(input)
-	value.custom_minimum_size = Vector2(Global.vec.size.particle)
+	if type != "level":
+		value.custom_minimum_size = Vector2(Global.vec.size.particle)
+	else:
+		value.custom_minimum_size = Vector2(Global.vec.size.particle * 0.5)
 

@@ -13,6 +13,7 @@ var troop = null
 var target = null
 var knockout = false
 var rating = {}
+var murderer = null
 
 
 func set_attributes(input_: Dictionary) -> void:
@@ -98,7 +99,16 @@ func get_damage_from_ability(ability_: MarginContainer) -> void:
 		ability_.abilities.trigger_ultimate_conditions_check(conditions)
 	
 	if knockout:
+		murderer = ability_.abilities.creature
+		#ability_.abilities.creature.trophies.append(self)
 		ability_.abilities.creature.target = null
+		
+		if troop.creatures.get_child_count() == 0:
+			troop.winner = false
+			troop.opponent.winner = true
+			troop.battleground.loser = troop
+			troop.battleground.winner = troop.opponent
+			troop.battleground.winner_prize()
 
 
 func change_energy(energy_: int) -> void:
@@ -127,15 +137,8 @@ func select_ability() -> void:
 func set_as_knockouted() -> void:
 	if troop != null:
 		knockout = true
-		
 		troop.creatures.remove_child(self)
 		troop.infirmary.add_child(self)
-		
-		if troop.creatures.get_child_count() == 0:
-			troop.winner = false
-			troop.opponent.winner = true
-			troop.battleground.winner = troop.opponent
-			troop.battleground.winner_prize()
 
 
 func active_passive_regeneration() -> void:

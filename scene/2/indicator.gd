@@ -49,23 +49,23 @@ func change_value(limit_: String, value_: float) -> void:
 	
 	match limit_:
 		"current":
-			var arrear = null
+			bar.value += value_
 			
-			if bar.value + value_ > bar.min_value:
-				bar.value += value_
-			else:
-				arrear = value_ + bar.value - bar.min_value
-				conditions.value = value_ - arrear
-				bar.value = bar.min_value
+			if bar.value >= bar.max_value:
+				if type == "experience":
+					indicators.update_experience()
+				else:
+					bar.value = bar.max_value
 			
-			bar.value = min(bar.value, bar.max_value)
-			
-			if arrear != null:
+			if bar.value < bar.min_value:
 				match type:
 					"barrier":
-						indicators.health.change_value("current", arrear)
+						indicators.health.change_value("current", bar.value)
 					"health":
 						indicators.creature.set_as_knockouted()
+				
+				conditions.value = bar.min_value - bar.value
+				bar.value = bar.min_value
 			
 			indicators.creature.abilities.trigger_ultimate_conditions_check(conditions)
 			value.text = str(bar.value)

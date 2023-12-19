@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://dqcwgpd1e8ec1" path="res://scene/2/core.tscn" id="2_ur64t"]
 [ext_resource type="PackedScene" uid="uid://cj31171eyrvxu" path="res://scene/2/indicators.tscn" id="3_mdhu0"]
 [ext_resource type="PackedScene" uid="uid://dlevdyapy7lcy" path="res://scene/2/tally.tscn" id="3_uaahl"]
-[ext_resource type="PackedScene" uid="uid://ds47n5r8t3fmq" path="res://scene/2/tattoo.tscn" id="3_x5wkt"]
-[ext_resource type="PackedScene" uid="uid://b1mc0hqvbw3l0" path="res://scene/2/totem.tscn" id="4_84bym"]
+[ext_resource type="PackedScene" uid="uid://ds47n5r8t3fmq" path="res://scene/5/tattoo.tscn" id="3_x5wkt"]
+[ext_resource type="PackedScene" uid="uid://b1mc0hqvbw3l0" path="res://scene/3/totem.tscn" id="4_84bym"]
 [ext_resource type="PackedScene" uid="uid://8jv7fpj556n6" path="res://scene/3/abilities.tscn" id="5_e4d7p"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7paps"]

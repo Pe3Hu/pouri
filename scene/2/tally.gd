@@ -1,8 +1,6 @@
 extends MarginContainer
 
 
-#@onready var parameters = $Parameters
-
 var creature = null
 var parameters = {}
 

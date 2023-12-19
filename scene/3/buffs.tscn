@@ -1,10 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://ds47n5r8t3fmq"]
+[gd_scene load_steps=3 format=3 uid="uid://b7s1tfg4nojcb"]
 
-[ext_resource type="Script" path="res://scene/2/tattoo.gd" id="1_i7w7c"]
+[ext_resource type="Script" path="res://scene/3/buffs.gd" id="1_lhh08"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7paps"]
 
-[node name="Tattoo" type="MarginContainer"]
+[node name="Buffs" type="MarginContainer"]
 custom_minimum_size = Vector2(5, 5)
 anchors_preset = 8
 anchor_left = 0.5
@@ -19,9 +19,21 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-script = ExtResource("1_i7w7c")
+script = ExtResource("1_lhh08")
 
 [node name="BG" type="Panel" parent="."]
 visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_7paps")
+
+[node name="HBox" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="Temporary" type="VBoxContainer" parent="HBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="Permanent" type="VBoxContainer" parent="HBox"]
+layout_mode = 2
+alignment = 1
