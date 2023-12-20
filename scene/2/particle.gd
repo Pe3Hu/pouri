@@ -24,4 +24,3 @@ func set_attributes(input_: Dictionary) -> void:
 		value.custom_minimum_size = Vector2(Global.vec.size.particle)
 	else:
 		value.custom_minimum_size = Vector2(Global.vec.size.particle * 0.5)
-

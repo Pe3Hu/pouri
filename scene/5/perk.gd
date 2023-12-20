@@ -5,19 +5,26 @@ extends MarginContainer
 @onready var subtype = $HBox/Subtype
 @onready var value = $HBox/Value
 
-var ornament = null
+var proprietor = null
 var particle = null
 
 
 func set_attributes(input_: Dictionary) -> void:
-	ornament = input_.ornament
-	particle = input_.particle
+	proprietor = input_.proprietor
+	
+	if input_.has("particle"):
+		particle = input_.particle
 	
 	roll()
 
 
 func roll() -> void:
-	var index = Global.get_random_key(Global.dict.perk.particle[particle])
+	var key = "common"
+	
+	if particle != null:
+		key = particle
+	
+	var index = Global.get_random_key(Global.dict.parameter.rarity[key])
 	var description = Global.dict.parameter.index[index]
 	
 	var n = 5
@@ -33,10 +40,18 @@ func roll() -> void:
 	
 	input.type = "parameter"
 	input.subtype = description.subtype
-	type.set_attributes(input)
+	subtype.set_attributes(input)
 	subtype.custom_minimum_size = Vector2(Global.vec.size.particle)
 	
 	input.type = "number"
 	input.subtype = description.min + rank * step
 	value.set_attributes(input)
 	value.custom_minimum_size = Vector2(Global.vec.size.particle)
+
+
+func apply() -> void:
+	var bonus = {}
+	bonus.type = type.subtype
+	bonus.subtype = subtype.subtype
+	bonus.value = value.get_number()
+	proprietor.creature.tally.apply_bonus(bonus)

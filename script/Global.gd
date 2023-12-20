@@ -319,7 +319,7 @@ func init_ornament() -> void:
 			if key != "order":
 				data[key] = ornament[key]
 		
-		dict.ornament.order[ornament.order] = data
+		dict.ornament.order[int(ornament.order)] = data
 
 
 func init_node() -> void:
@@ -327,6 +327,8 @@ func init_node() -> void:
 
 
 func init_scene() -> void:
+	scene.icon = load("res://scene/0/icon.tscn")
+	
 	scene.tribe = load("res://scene/1/tribe.tscn")
 	scene.creature = load("res://scene/1/creature.tscn")
 	scene.troop = load("res://scene/1/troop.tscn")

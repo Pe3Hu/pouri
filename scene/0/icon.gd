@@ -1,6 +1,7 @@
 extends MarginContainer
 
 
+@onready var bg = $BG
 @onready var number = $Number
 @onready var tr = $TextureRect
 
@@ -18,7 +19,7 @@ func set_attributes(input_: Dictionary) -> void:
 	
 	if !exceptions.has(type):
 		custom_minimum_size = Vector2(Global.vec.size.icon)
-		path += type + "/" + subtype + ".png"
+		path += type + "/" + str(subtype) + ".png"
 		tr.texture = load(path)
 	
 	match type:

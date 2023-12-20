@@ -7,6 +7,7 @@ extends MarginContainer
 @onready var abilities = $HBox/VBox/Abilities
 @onready var tattoo = $HBox/Tattoo
 @onready var totem = $HBox/Totem
+@onready var perks = $HBox/Perks
 
 var tribe = null
 var troop = null
@@ -27,6 +28,7 @@ func set_attributes(input_: Dictionary) -> void:
 	indicators.set_attributes(input)
 	abilities.set_attributes(input)
 	tattoo.set_attributes(input)
+	perks.set_attributes(input)
 
 
 func use_ability(kind_: String) -> void:

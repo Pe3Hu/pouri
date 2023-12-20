@@ -100,3 +100,4 @@ func get_experience_multiplier_based_on_level_difference(creature_: MarginContai
 		multiplier = 1 / multiplier
 	
 	return multiplier
+

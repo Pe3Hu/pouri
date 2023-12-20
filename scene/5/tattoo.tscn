@@ -26,5 +26,11 @@ visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_7paps")
 
-[node name="Ornaments" type="GridContainer" parent="."]
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Icons" type="MarginContainer" parent="VBox"]
+layout_mode = 2
+
+[node name="Ornaments" type="HBoxContainer" parent="VBox"]
 layout_mode = 2

@@ -31,6 +31,7 @@ layout_mode = 2
 alignment = 1
 
 [node name="Lands" type="GridContainer" parent="HBox"]
+visible = false
 layout_mode = 2
 theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 0

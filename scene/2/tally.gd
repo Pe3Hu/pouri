@@ -85,3 +85,19 @@ func trigger_probability_check(type_: String, source_: String) -> bool:
 func get_offense_multiplier(type_: String) -> float:
 	var value = parameters[type_].limit
 	return 1 + value / 100.0
+
+
+func apply_bonus(bonus_: Dictionary) -> void:
+	parameters[bonus_.type][bonus_.subtype] += bonus_.value
+	
+	if bonus_.subtype == "limit" and Global.arr.indicator.has(bonus_.type):
+		var indicator = creature.indicators.get_indicator(bonus_.type)
+		indicator.change_value("maximum", bonus_.value)
+	
+	if bonus_.subtype == "specialization":
+		for ability in creature.abilities.get_children():
+			ability.update_damage()
+	
+	if bonus_.subtype == "tempo":
+		for ability in creature.abilities.get_children():
+			ability.update_tempo()

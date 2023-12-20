@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://coh4pridox665"]
+[gd_scene load_steps=10 format=3 uid="uid://coh4pridox665"]
 
 [ext_resource type="Script" path="res://scene/1/creature.gd" id="1_qlkr1"]
 [ext_resource type="PackedScene" uid="uid://dqcwgpd1e8ec1" path="res://scene/2/core.tscn" id="2_ur64t"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dlevdyapy7lcy" path="res://scene/2/tally.tscn" id="3_uaahl"]
 [ext_resource type="PackedScene" uid="uid://ds47n5r8t3fmq" path="res://scene/5/tattoo.tscn" id="3_x5wkt"]
 [ext_resource type="PackedScene" uid="uid://b1mc0hqvbw3l0" path="res://scene/3/totem.tscn" id="4_84bym"]
+[ext_resource type="PackedScene" uid="uid://bybd2awt2qc7" path="res://scene/2/perks.tscn" id="4_vhq36"]
 [ext_resource type="PackedScene" uid="uid://8jv7fpj556n6" path="res://scene/3/abilities.tscn" id="5_e4d7p"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7paps"]
@@ -40,6 +41,9 @@ visible = false
 layout_mode = 2
 
 [node name="Tattoo" parent="HBox" instance=ExtResource("3_x5wkt")]
+layout_mode = 2
+
+[node name="Perks" parent="HBox" instance=ExtResource("4_vhq36")]
 layout_mode = 2
 
 [node name="Totem" parent="HBox" instance=ExtResource("4_84bym")]

@@ -28,15 +28,15 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_7paps")
 
 [node name="Timer" type="Timer" parent="."]
 
-[node name="VBox" type="VBoxContainer" parent="."]
+[node name="HBox" type="HBoxContainer" parent="."]
 layout_mode = 2
 alignment = 1
 
-[node name="Troops" type="VBoxContainer" parent="VBox"]
+[node name="Troops" type="VBoxContainer" parent="HBox"]
 layout_mode = 2
 alignment = 1
 
-[node name="Ornaments" type="VBoxContainer" parent="VBox"]
+[node name="Ornaments" type="HBoxContainer" parent="HBox"]
 layout_mode = 2
 alignment = 1
 

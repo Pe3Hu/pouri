@@ -48,6 +48,7 @@ func update_experience() -> void:
 		creature.core.level.value.change_number(1)
 		experience.bar.value = max(0, experience.bar.value - experience.bar.max_value)
 		experience.bar.max_value = pow(creature.core.level.value.get_number() + 9, 2)
+		creature.perks.add_perk()
 
 
 func get_current_experience() -> int:

@@ -1,8 +1,8 @@
 extends MarginContainer
 
 
-@onready var troops = $VBox/Troops
-@onready var ornaments = $VBox/Ornaments
+@onready var troops = $HBox/Troops
+@onready var ornaments = $HBox/Ornaments
 @onready var timer = $Timer
 
 
@@ -31,13 +31,13 @@ func add_troop(troop_: MarginContainer) -> void:
 
 
 func start() -> void:
-	winner = left
-	roll_ornaments()
-	#for troop in troops.get_children():
-		#for creature in troop.creatures.get_children():
-			#creature.select_ability()
-	#
-	#timer.start()
+	#winner = left
+	
+	for troop in troops.get_children():
+		for creature in troop.creatures.get_children():
+			creature.select_ability()
+	
+	timer.start()
 
 
 func _on_timer_timeout():
@@ -83,14 +83,20 @@ func winner_prize() -> void:
 		trophies[creature] += share
 		#print(["general", share])
 		creature.indicators.experience.change_value("current", trophies[creature])
+	
+	roll_ornaments()
 
 
 func roll_ornaments() -> void:
 	for creature in winner.creatures.get_children():
-		var input = {}
-		input.battleground = self
-		input.order = Global.dict.ornament.keys().pick_random()
-	
-		var ornament = Global.scene.ornament.instantiate()
-		ornaments.add_child(ornament)
-		ornament.set_attributes(input)
+		for _i in 2:
+			var input = {}
+			input.battleground = self
+			input.order = Global.dict.ornament.order.keys().pick_random()
+		
+			var ornament = Global.scene.ornament.instantiate()
+			ornaments.add_child(ornament)
+			ornament.set_attributes(input)
+			
+			ornaments.remove_child(ornament)
+			creature.tattoo.add_ornament(ornament)
